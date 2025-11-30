@@ -50,7 +50,7 @@ const headerHTML = `
             <nav class="flex flex-col space-y-6 mt-16 px-6">
                 <a href="/" class="hover:text-blue-600 font-semibold">Home</a>
                 <a href="./course.html" class="hover:text-blue-600 font-semibold">Courses</a>
-                <a href="https://www.google.com/maps/place/SAP+FICO+Training+%26+Placement/@17.4974233,78.3974909,841m/data=!3m1!1e3!4m8!3m7!1s0x3bcb91bf7409c79b:0x6273beac5f3270e9!8m2!3d17.4974233!4d78.3974909!9m1!1b1!16s%2Fg%2F11tcxl_mp_?entry=ttu&g_ep=EgoyMDI1MDUwNy4wIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D" target="_blank" class="hover:text-blue-600 font-semibold">Our Reviews</a>
+                <a href="https://www.google.com/maps/place/TechnoPad/@17.4369628,78.4446304,17z/data=!3m1!5s0x3bcb90c8ab9120c3:0x1c74b134c64e6e30!4m8!3m7!1s0x3bcb90c8ae94332d:0x77b45594a5a1ca3d!8m2!3d17.4369577!4d78.4472053!9m1!1b1!16s%2Fg%2F119wdkwfr?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="hover:text-blue-600 font-semibold">Our Reviews</a>
                 <a href="#" class="hover:text-blue-600 font-semibold">Blogs</a>
                 <a href="./contact.html" class="hover:text-blue-600 font-semibold">Contact Us</a>
                 <a href="./about.html" class="hover:text-blue-600 font-semibold">About Us</a>

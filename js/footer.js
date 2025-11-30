@@ -138,7 +138,7 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
                             <h4 class="text-lg font-semibold mb-6 ">Contact Us</h4>
                             <ul class="space-y-3">
                                 <li class="flex items-start">
-                                    <a href="https://maps.app.goo.gl/7XPr3bgnCQw8BZqC8" target="_blank"
+                                    <a href="https://maps.app.goo.gl/dBg3WRdgwXfQ1DjQ8" target="_blank"
                                         class="hover: ">
                                         <i class="fas fa-map-marker-alt text-blue-500 mt-1 mr-3"></i>
                                         <span>Flat No 202, 2nd Floor, Sri Swathi Anukar Complex, Beside Aditya Trade Centre, Satyam Theatre Rd, opposite Lane Of, Ameerpet, Hyderabad, Telangana 500016 </span>
