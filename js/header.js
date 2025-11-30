@@ -22,7 +22,7 @@ const headerHTML = `
     <div class="flex items-center justify-between md:px-4 max-sm:pe-4 py-2 border-b">
         <!-- Logo -->
         <a href="/">
-            <img src="/img/logo.png" alt="MyERP Hub Logo" class="h-16" />
+            <img src="/img/logo.png" alt="Techno Pad Logo" class="h-16" />
         </a>
 
         <!-- Desktop Navigation -->

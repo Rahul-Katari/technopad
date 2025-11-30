@@ -114,7 +114,7 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
                                 <li><a href="/" class=" hover:scale-105">Home</a></li>
                                 <li><a href="./about.html" class=" hover:scale-105">About Us</a></li>
                                 <li><a href="./course.html" class=" hover:scale-105">Courses</a></li>
-                                <li><a href="https://blog.myerphub.com" class=" hover:scale-105">Blogs</a></li>
+                                <li><a href="#" class=" hover:scale-105">Blogs</a></li>
                                 <li><a href="./contact.html" class=" hover:scale-105">Contact</a></li>
                             </ul>
                         </div>
@@ -173,12 +173,12 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
                         <strong>Declaration:</strong> Techno Pad is not an authorized SAP Partner. Any course, training
                         or
                         other
-                        service provided at MyERP Hub are not associated, affiliated, authorized, endorsed by, or in any
+                        service provided at Techno Pad are not associated, affiliated, authorized, endorsed by, or in any
                         way
                         officially connected with SAP organization. SAP is a registered trademark of SAP AG in Germany
                         and
                         many
-                        other countries. MyERP Hub is NOT associated with the SAP organization. We do not conduct any
+                        other countries. Techno Pad is NOT associated with the SAP organization. We do not conduct any
                         SAP
                         Certification training programs.
                     </div>
