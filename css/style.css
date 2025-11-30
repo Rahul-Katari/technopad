@@ -1,0 +1,35 @@
+.bg-theme {
+  background: #132337;
+  background: linear-gradient(101deg, rgb(19, 35, 55), rgb(1, 119, 173));
+  /* background: #ffdd00; */
+  /* background: linear-gradient(101deg, rgb(178 255 102), rgb(146, 254, 169)); */
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-380%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+.page-header {
+  background: linear-gradient(rgba(24, 29, 56, 0.7), rgba(24, 29, 56, 0.7)),
+    url(../img/carousel-1.jpg);
+  background-color: rgba(0, 0, 0, 0);
+  background-position-x: 0%, 0%;
+  background-position-y: 0%, 0%;
+  background-repeat: repeat, repeat;
+  background-size: auto, auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
