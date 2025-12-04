@@ -106,6 +106,15 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
                                 <a href="https://www.instagram.com/technopadsocial/" target="_blank"
                                     class=" hover:scale-105"><i class="fab fa-instagram"></i></a>
                             </div>
+                            <div>
+                                <div class="flex mt-4 space-x-4">
+                                    <img src="/img/footer/quality-control.png" class="h-20"/>
+                                    <img src="/img/footer/iso-certified.png" class="h-20"/>
+                                </div>
+                                <div class="flex mt-4">
+                                    <img src="/img/footer/msme-certificate-service.jpg" class="h-28"/>
+                                </div>
+                            </div>
                         </div>
 
                         <div>
