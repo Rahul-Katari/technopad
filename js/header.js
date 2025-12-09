@@ -1,7 +1,7 @@
 const headerHTML = `
 <header >
     <!-- Top Bar -->
-    <div class="bg-white text-sm py-2 px-4 md:flex hidden justify-between items-center">
+    <div class="bg-white text-sm py-2 px-4 md:flex hidden justify-between items-center border-b shadow-sm">
         <div class="flex items-center space-x-4">
             <div class="flex items-center space-x-1">
                 <a href="tel:9581336333" class="text-black hover:underline font-semibold"><i

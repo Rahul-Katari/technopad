@@ -480,9 +480,10 @@
         <!-- CTA Button -->
         <div class="text-center mt-12">
           <button
+            onclick="openModal('FICO')"
             class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Enroll in SAP FICO Program
+            Download SAP FICO Program Brochure
           </button>
         </div>
       </div>
@@ -626,9 +627,10 @@
         <!-- CTA Button -->
         <div class="text-center mt-12">
           <button
+            onclick="openModal('ABAP')"
             class="bg-gradient-to-r from-yellow-600 to-orange-700 hover:from-yellow-700 hover:to-orange-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Enroll in SAP ABAP Program
+            Download SAP ABAP Program Brochure
           </button>
         </div>
       </div>
@@ -771,9 +773,10 @@
         <!-- CTA Button -->
         <div class="text-center mt-12">
           <button
+            onclick="openModal('MM')"
             class="bg-gradient-to-r from-green-600 to-teal-700 hover:from-green-700 hover:to-teal-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Enroll in SAP MM Program
+            Download SAP MM Program Brochure
           </button>
         </div>
       </div>
@@ -914,9 +917,10 @@
         <!-- CTA Button -->
         <div class="text-center mt-12">
           <button
+            onclick="openModal('SD')"
             class="bg-gradient-to-r from-red-600 to-pink-700 hover:from-red-700 hover:to-pink-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Enroll in SAP SD Program
+            Download SAP SD Program Brochure
           </button>
         </div>
       </div>
@@ -1064,9 +1068,10 @@
         <!-- CTA Button -->
         <div class="text-center mt-12">
           <button
+            onclick="openModal('BASIS')"
             class="bg-gradient-to-r from-purple-600 to-violet-700 hover:from-purple-700 hover:to-violet-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Enroll in SAP BASIS Program
+            Download SAP BASIS Program Brochure
           </button>
         </div>
       </div>
@@ -1211,9 +1216,10 @@
         <!-- CTA Button -->
         <div class="text-center mt-12">
           <button
+            onclick="openModal('PM')"
             class="bg-gradient-to-r from-indigo-600 to-blue-700 hover:from-indigo-700 hover:to-blue-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Enroll in SAP PM Program
+            Download SAP PM Program Brochure
           </button>
         </div>
       </div>
@@ -1356,9 +1362,10 @@
         <!-- CTA Button -->
         <div class="text-center mt-12">
           <button
+            onclick="openModal('PP')"
             class="bg-gradient-to-r from-teal-600 to-cyan-700 hover:from-teal-700 hover:to-cyan-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Enroll in SAP PP Program
+            Download SAP PP Program Brochure
           </button>
         </div>
       </div>
@@ -1505,9 +1512,10 @@
         <!-- CTA Button -->
         <div class="text-center mt-12">
           <button
+            onclick="openModal('HCM')"
             class="bg-gradient-to-r from-pink-600 to-rose-700 hover:from-pink-700 hover:to-rose-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Enroll in SAP HCM Program
+            Download SAP HCM Program Brochure
           </button>
         </div>
       </div>
@@ -1657,9 +1665,10 @@
         <!-- CTA Button -->
         <div class="text-center mt-12">
           <button
+            onclick="openModal('SUCCESS FACTORS')"
             class="bg-gradient-to-r from-orange-600 to-amber-700 hover:from-orange-700 hover:to-amber-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
           >
-            Enroll in SAP SUCCESS FACTORS Program
+            Download SAP SUCCESS FACTORS Program Brochure
           </button>
         </div>
       </div>
@@ -1915,10 +1924,8 @@
                 // Trigger brochure download
                 const courseName = formData.get("courseName");
                 const link = document.createElement("a");
-                link.href = `./brochures/${courseName
-                  .toLowerCase()
-                  .replace(" ", "-")}-brochure.pdf`;
-                link.download = `${courseName}-Brochure.pdf`;
+                link.href = `./brochures/Technopad SAP ${courseName} Brochure.pdf`;
+                link.download = `Technopad SAP ${courseName} Brochure.pdf`;
                 link.click();
               })
               .catch((error) => {
