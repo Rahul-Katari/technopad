@@ -1913,12 +1913,10 @@
             ["9", "8", "7", "6"].some((num) => mobile.startsWith(num))
           ) {
             emailjs
-              .sendForm("service_kts49gp", "template_sbvcain", event.target)
+              .sendForm("service_1wbq43b", "template_9429o5b", event.target)
               .then(() => {
-                alert(
-                  "Form Submitted Successfully. Your brochure will be downloaded."
-                );
                 closeModal();
+                window.location.replace("/thank-you");
                 document.getElementById("brochureForm").reset();
 
                 // Trigger brochure download
@@ -1954,7 +1952,7 @@
       (function () {
         // https://dashboard.emailjs.com/admin/account
         emailjs.init({
-          publicKey: "idzfvJAMIeiqosu-S",
+          publicKey: "KdB7a_GBrO45ZSNUz",
         });
       })();
     </script>
