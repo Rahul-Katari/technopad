@@ -1,10 +1,19 @@
 const footerHTML = `<div class="max-w-7xl mx-auto text-white">
-<div class="text-right fixed right-4 bottom-10">
+<div class="text-right fixed lg:right-14 right-4 bottom-10 lg:bottom-16 flex flex-col items-end z-50">
+        <!-- Scroll to Top Button -->
+        <button 
+            id="to-top-button" 
+            onclick="scrollToTop()"
+            class="flex items-center justify-center mb-4 p-4 w-14 h-14 rounded-full shadow-lg bg-indigo-600 hover:bg-indigo-700 text-white transition-all duration-300 transform hover:scale-110 hidden"
+            title="Go to Top"
+            >
+            <i class="fas fa-arrow-up text-xl animate-bounce"></i>
+        </button>
       <a
-        href="https://wa.me/9581336333"
-        class="absolute lg:right-4 right-2 lg:bottom-10 bottom-4 rounded-full size-14 flex justify-center items-center p-2 bg-[#25D366] shadow-lg"
+        href="https://wa.me/9550191219"
+        class="rounded-full size-14 flex justify-center items-center p-2 bg-[#25D366] shadow-lg"
       >
-        <i class="fa-brands fa-whatsapp  fa-2x fa-fade"></i>
+        <i class="fa-brands fa-whatsapp text-white fa-2x fa-fade"></i>
       </a>
     </div>
             <!-- CTA Section starts  -->
@@ -111,8 +120,9 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
                                     <img src="/img/footer/quality-control.png" class="h-20"/>
                                     <img src="/img/footer/iso-certified.png" class="h-20"/>
                                 </div>
-                                <div class="flex mt-4">
-                                    <img src="/img/footer/msme-certificate-service.jpg" class="h-28"/>
+                                <div class="flex mt-4 space-x-4">
+                                    <img src="/img/footer/msme-certificate-service.jpg" class="h-20"/>
+                                    <img src="/img/footer/15 Year excellence.png" class="h-24"/>
                                 </div>
                             </div>
                         </div>
@@ -131,15 +141,15 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
                         <div>
                             <h4 class="text-lg font-semibold mb-6 ">Courses</h4>
                             <ul class="space-y-1">
-                                <li><a href="./course.html#personal" class=" hover:scale-105">SAP FICO</a></li>
-                                <li><a href="./course.html#classroom" class=" hover:scale-105">SAP ABAP</a></li>
-                                <li><a href="./course.html#internship" class=" hover:scale-105">SAP MM</a></li>
-                                <li><a href="./course.html#placement" class=" hover:scale-105">SAP SD</a></li>
-                                <li><a href="./course.html#placement" class=" hover:scale-105">SAP BASIS</a></li>
-                                <li><a href="./course.html#placement" class=" hover:scale-105">SAP PM</a></li>
-                                <li><a href="./course.html#placement" class=" hover:scale-105">SAP PP</a></li>
-                                <li><a href="./course.html#placement" class=" hover:scale-105">SAP HCM</a></li>
-                                <li><a href="./course.html#placement" class=" hover:scale-105">SAP SUCCESS FACTORS</a></li>
+                                <li><a href="./course.html#fico" class=" hover:scale-105">SAP FICO</a></li>
+                                <li><a href="./course.html#abap" class=" hover:scale-105">SAP ABAP</a></li>
+                                <li><a href="./course.html#mm" class=" hover:scale-105">SAP MM</a></li>
+                                <li><a href="./course.html#sd" class=" hover:scale-105">SAP SD</a></li>
+                                <li><a href="./course.html#basis" class=" hover:scale-105">SAP BASIS</a></li>
+                                <li><a href="./course.html#pm" class=" hover:scale-105">SAP PM</a></li>
+                                <li><a href="./course.html#pp" class=" hover:scale-105">SAP PP</a></li>
+                                <li><a href="./course.html#hcm" class=" hover:scale-105">SAP HCM</a></li>
+                                <li><a href="./course.html#successfactors" class=" hover:scale-105">SAP SUCCESS FACTORS</a></li>
                             </ul>
                         </div>
 
@@ -200,3 +210,26 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
     `;
 
 document.getElementById("footer").innerHTML = footerHTML;
+document.addEventListener("DOMContentLoaded", () => {
+  const toTopButton = document.getElementById("to-top-button");
+
+  // Only proceed if the button actually exists on the current page
+  if (toTopButton) {
+    // Show/hide button based on scroll position
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        toTopButton.classList.remove("hidden");
+      } else {
+        toTopButton.classList.add("hidden");
+      }
+    });
+
+    // Handle the smooth scroll click event
+    toTopButton.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
+});
