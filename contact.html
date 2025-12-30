@@ -52,9 +52,252 @@
     />
     <script src="./js/header.js" defer></script>
     <script src="./js/footer.js" defer></script>
+
+    <style>
+      /* Animation Classes */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .animate-fade-in {
+        opacity: 0;
+        transition: all 1s ease-out;
+      }
+
+      .animate-fade-in.animated {
+        opacity: 1;
+      }
+
+      .animate-scale-in {
+        opacity: 0;
+        transform: scale(0.95);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .animate-scale-in.animated {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .animate-slide-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .animate-slide-left.animated {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .animate-slide-right {
+        opacity: 0;
+        transform: translateX(40px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .animate-slide-right.animated {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Enhanced Hero Section */
+      .page-header {
+        background: linear-gradient(
+            135deg,
+            rgba(1, 33, 80, 0.9) 0%,
+            rgba(0, 74, 143, 0.9) 100%
+          ),
+          url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 70%
+        );
+        animation: shine 3s infinite linear;
+      }
+
+      @keyframes shine {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+
+      /* Contact Card Animations */
+      .contact-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+        transition: left 0.6s ease;
+      }
+
+      .contact-card:hover::before {
+        left: 100%;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Icon Animations */
+      .contact-icon {
+        transition: all 0.4s ease;
+      }
+
+      .contact-card:hover .contact-icon {
+        transform: scale(1.1) rotate(5deg);
+        background: linear-gradient(
+          135deg,
+          #3b82f6 0%,
+          #1d4ed8 100%
+        ) !important;
+      }
+
+      /* Form Input Animations */
+      .form-input {
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+      }
+
+      /* Button Animation */
+      .submit-button {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+      }
+
+      .submit-button::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      .submit-button:hover::after {
+        width: 300px;
+        height: 300px;
+      }
+
+      .submit-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px -10px rgba(59, 130, 246, 0.4);
+      }
+
+      /* Location Card Styling */
+      .location-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        border-left: 4px solid #3b82f6;
+        transition: all 0.4s ease;
+      }
+
+      .location-card:hover {
+        border-left: 4px solid #1d4ed8;
+        transform: translateX(5px);
+      }
+
+      /* Section Spacing */
+      .section-padding {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+
+      /* Gradient Text */
+      .gradient-text {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Breadcrumb Animation */
+      .breadcrumb-item {
+        transition: all 0.3s ease;
+      }
+
+      .breadcrumb-item:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .section-padding {
+          padding-top: 3rem;
+          padding-bottom: 3rem;
+        }
+      }
+
+      /* Floating Animation */
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* Pattern Background */
+      .pattern-bg {
+        background-image: radial-gradient(#3b82f6 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+    </style>
   </head>
 
-  <body>
+  <body class="bg-gray-50">
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -67,273 +310,522 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="header"></div>
 
-    <!-- Header Start -->
-    <div class="w-full bg-blue-600 py-20 mb-5 page-header">
+    <!-- Enhanced Hero Section -->
+    <div
+      class="w-full bg-gradient-to-r from-blue-800 to-blue-600 py-24 page-header pattern-bg"
+    >
       <div class="container max-w-7xl mx-auto px-4">
-        <div class="flex justify-center">
+        <div class="flex justify-center animate-on-scroll">
           <div class="lg:w-10/12 text-center">
-            <h1 class="text-5xl font-bold text-white mb-8">Contact Us</h1>
-            <nav aria-label="breadcrumb">
-              <ol class="flex justify-center gap-2">
+            <h1
+              class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
+            >
+              Get In Touch With Us
+            </h1>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              Have questions about our SAP training programs? We're here to help
+              you start your SAP career journey.
+            </p>
+            <nav
+              aria-label="breadcrumb"
+              class="inline-block bg-white/10 backdrop-blur-sm rounded-full px-6 py-3"
+            >
+              <ol class="flex justify-center gap-2 items-center">
                 <li>
-                  <a class="text-white hover:underline" href="index.html"
-                    >Home</a
+                  <a
+                    class="text-white hover:text-blue-200 hover:underline transition-colors"
+                    href="index.html"
                   >
+                    <i class="fas fa-home mr-1"></i> Home
+                  </a>
                 </li>
-                <li class="text-white">/</li>
-                <li class="text-white">Contact Us</li>
+                <li class="text-white">
+                  <i class="fas fa-chevron-right text-sm"></i>
+                </li>
+                <li class="text-white font-medium">Contact Us</li>
               </ol>
             </nav>
           </div>
         </div>
       </div>
     </div>
-    <!-- Header End -->
 
-    <!-- Contact Start -->
-    <div class="container max-w-7xl mx-auto py-10" id="contact-form-wrapper">
-      <div class="text-center">
-        <h6 class="text-lg font-semibold text-blue-600 mb-2">CONTACT US</h6>
-        <h1 class="text-3xl font-bold mb-8">Contact For Any Query</h1>
+    <!-- Enhanced Contact Section -->
+    <div
+      class="container max-w-7xl mx-auto section-padding"
+      id="contact-form-wrapper"
+    >
+      <div class="text-center mb-16 animate-on-scroll">
+        <div class="inline-block mb-4">
+          <div
+            class="w-20 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-4 rounded-full"
+          ></div>
+          <h6
+            class="text-lg font-semibold text-blue-600 mb-2 tracking-wider uppercase"
+          >
+            CONTACT US
+          </h6>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+          Let's Start Your <span class="gradient-text">SAP Journey</span>
+        </h1>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+          Reach out to us for course details, enrollment, or any queries about
+          our SAP training programs
+        </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Left Section -->
-        <div>
-          <h5 class="text-3xl font-bold text-center mb-4">Get In Touch</h5>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="flex flex-col justify-center">
-              <!-- <h4 class="text-blue-600 font-semibold">Contact - USA</h4>
-              <p class="text-gray-700">
-                Park Meadows Drive, Littleton, Colorado-80122
-              </p> -->
-              <h4 class="text-blue-600 font-semibold">Contact - Hyderabad</h4>
-              <p class="text-gray-700">
-                Flat # 202, 2nd Floor, Sri Swathi Anukar Complex, Beside Aditya
-                Trade Centre, Satyam Theatre Rd, opposite Lane of, Ameerpet,
-                Hyderabad, Telangana - 500016
-              </p>
-            </div>
-            <div>
-              <h4 class="text-blue-600 font-semibold mt-4">
-                Contact - Bengaluru
-              </h4>
-              <p class="text-gray-700">
-                Hare Krishna Nilayam #71 Sapthagiri Layout, 2nd cross,
-                Bettdasnpura main road, Doddathogur, Electronic city phase 1
-                Bangalore 560100
-              </p>
-              <h4 class="text-blue-600 font-semibold mt-4">
-                Contact - Tirupati
-              </h4>
-              <p class="text-gray-700">
-                5-2a Meghana layout, Pudipatla, Tirupati- 517505
-              </p>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Enhanced Left Section -->
+        <div class="space-y-10 animate-slide-left">
+          <div class="bg-white rounded-2xl shadow-xl p-8 contact-card">
+            <h5 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+              <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
+              Our Locations
+            </h5>
+            <div class="space-y-8">
+              <!-- Hyderabad -->
+              <div class="location-card p-6 rounded-xl border border-gray-100">
+                <div class="flex items-start mb-3">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center"
+                    >
+                      <i class="fas fa-city text-blue-600"></i>
+                    </div>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-lg font-bold text-blue-700">Hyderabad</h4>
+                    <p class="text-gray-700 mt-2 leading-relaxed">
+                      Flat # 202, 2nd Floor, Sri Swathi Anukar Complex, Beside
+                      Aditya Trade Centre, Satyam Theatre Rd, opposite Lane of,
+                      Ameerpet, Hyderabad, Telangana - 500016
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bengaluru -->
+              <div class="location-card p-6 rounded-xl border border-gray-100">
+                <div class="flex items-start mb-3">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center"
+                    >
+                      <i class="fas fa-laptop-code text-green-600"></i>
+                    </div>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-lg font-bold text-green-700">Bengaluru</h4>
+                    <p class="text-gray-700 mt-2 leading-relaxed">
+                      Hare Krishna Nilayam #71 Sapthagiri Layout, 2nd cross,
+                      Bettdasnpura main road, Doddathogur, Electronic city phase
+                      1 Bangalore 560100
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tirupati -->
+              <div class="location-card p-6 rounded-xl border border-gray-100">
+                <div class="flex items-start mb-3">
+                  <div class="flex-shrink-0">
+                    <div
+                      class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center"
+                    >
+                      <i class="fas fa-university text-purple-600"></i>
+                    </div>
+                  </div>
+                  <div class="ml-4">
+                    <h4 class="text-lg font-bold text-purple-700">Tirupati</h4>
+                    <p class="text-gray-700 mt-2 leading-relaxed">
+                      5-2a Meghana layout, Pudipatla, Tirupati- 517505
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-            <div class="flex items-center">
-              <div
-                class="flex items-center justify-center bg-blue-600 text-white w-12 h-12 rounded-full"
-              >
-                <i class="fa fa-phone-alt"></i>
+
+          <!-- Contact Methods -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-2xl shadow-xl p-6 contact-card">
+              <div class="flex items-center mb-4">
+                <div
+                  class="contact-icon flex items-center justify-center bg-blue-600 text-white w-14 h-14 rounded-full floating"
+                >
+                  <i class="fa fa-phone-alt text-xl"></i>
+                </div>
+                <div class="ml-5">
+                  <h5 class="text-lg font-bold text-gray-900">
+                    Call / WhatsApp
+                  </h5>
+                </div>
               </div>
-              <div class="ml-4">
-                <h5 class="text-blue-600 font-semibold">Mobile/Whatsapp</h5>
-                <!-- <p class="text-gray-700">
-                  <strong>KPHB:</strong>
-                  <a
-                    href="tel:+919395191219"
-                    class="text-blue-600 hover:underline"
-                    >+91 95507 25666</a
-                  >
-                </p>
-                <p class="text-gray-700">
-                  <strong>KPHB:</strong>
-                  <a
-                    href="tel:+918978896293"
-                    class="text-blue-600 hover:underline"
-                    >+91 89788 96293</a
-                  >
-                </p> -->
-                <p class="text-gray-700">
-                  <strong>Ameerpet:</strong>
-                  <a
-                    href="tel:+919581336333"
-                    class="text-blue-600 hover:underline block"
-                    >+91 95813 36333</a
-                  ><a
-                    href="tel:+919581336333"
-                    class="text-blue-600 hover:underline"
-                    >+91 97014 79755
-                  </a>
-                </p>
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <div>
+                    <p class="text-gray-700 font-medium">Ameerpet:</p>
+                    <a
+                      href="tel:+919581336333"
+                      class="text-blue-600 hover:text-blue-800 hover:underline transition-colors block"
+                    >
+                      +91 95813 36333
+                    </a>
+                    <a
+                      href="tel:+919701479755"
+                      class="text-blue-600 hover:text-blue-800 hover:underline transition-colors"
+                    >
+                      +91 97014 79755
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="flex items-center">
-              <div
-                class="flex items-center justify-center bg-blue-600 text-white w-12 h-12 rounded-full"
-              >
-                <i class="fa fa-envelope-open"></i>
+
+            <div class="bg-white rounded-2xl shadow-xl p-6 contact-card">
+              <div class="flex items-center mb-4">
+                <div
+                  class="contact-icon flex items-center justify-center bg-blue-600 text-white w-14 h-14 rounded-full floating"
+                >
+                  <i class="fa fa-envelope-open text-xl"></i>
+                </div>
+                <div class="ml-5">
+                  <h5 class="text-lg font-bold text-gray-900">Email Us</h5>
+                </div>
               </div>
-              <div class="ml-4">
-                <h5 class="text-blue-600 font-semibold">Email</h5>
-                <p class="text-gray-700">
+              <div class="flex items-center">
+                <div class="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                <div>
                   <a
                     href="mailto:sap.technopad@gmail.com"
-                    class="text-blue-600 hover:underline"
-                    >sap.technopad@gmail.com</a
+                    class="text-blue-600 hover:text-blue-800 hover:underline transition-colors text-lg font-medium"
                   >
+                    sap.technopad@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Info -->
+          <div
+            class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100"
+          >
+            <div class="flex items-center">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center"
+                >
+                  <i class="fas fa-clock text-blue-600 text-xl"></i>
+                </div>
+              </div>
+              <div class="ml-5">
+                <h4 class="text-lg font-bold text-gray-900">Response Time</h4>
+                <p class="text-gray-700 mt-1">
+                  We typically respond within 24 hours. For urgent queries,
+                  please call us directly.
                 </p>
               </div>
             </div>
           </div>
         </div>
-        <!-- Right Section -->
-        <div>
-          <form id="contact-form">
-            <div class="grid grid-cols-1 gap-6">
-              <div>
-                <label for="name" class="block text-gray-700 font-medium"
-                  >Name*</label
-                >
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-              <div>
-                <label for="mobile" class="block text-gray-700 font-medium"
-                  >Mobile*</label
-                >
-                <input
-                  type="tel"
-                  id="mobile"
-                  name="mobile"
-                  class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  placeholder="Mobile"
-                  required
-                  maxlength="10"
-                  minlength="10"
-                  pattern=".{10,}"
-                  oninput="validateMobileNumber(this)"
-                  title="Please Enter a Valid Mobile Number"
-                />
-              </div>
-              <div>
-                <label for="whatsapp" class="block text-gray-700 font-medium"
-                  >WhatsApp</label
-                >
-                <input
-                  type="tel"
-                  id="whatsapp"
-                  name="whatsapp"
-                  class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  placeholder="WhatsApp"
-                />
-              </div>
-              <div>
-                <label for="email" class="block text-gray-700 font-medium"
-                  >Email*</label
-                >
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  placeholder="Email"
-                  required
-                />
-              </div>
-              <div>
-                <label for="message" class="block text-gray-700 font-medium"
-                  >Message</label
-                >
-                <textarea
-                  id="message"
-                  name="message"
-                  class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  placeholder="Leave a message here"
-                  rows="5"
-                ></textarea>
-              </div>
-              <p id="contact-form-status" class="text-red-600"></p>
-              <div>
-                <button
-                  type="submit"
-                  id="contact-form-button"
-                  class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
-                >
-                  Send Message
-                </button>
-              </div>
+
+        <!-- Enhanced Right Section -->
+        <div class="animate-slide-right">
+          <div class="bg-white rounded-2xl shadow-xl p-8 contact-card">
+            <div class="text-center mb-8">
+              <h5 class="text-2xl font-bold text-gray-900 mb-3">
+                Send Us a Message
+              </h5>
+              <p class="text-gray-600">
+                Fill out the form below and we'll get back to you as soon as
+                possible
+              </p>
             </div>
-          </form>
+
+            <form id="contact-form">
+              <div class="space-y-6">
+                <div class="group">
+                  <label
+                    for="name"
+                    class="block text-gray-700 font-medium mb-2"
+                  >
+                    <i class="fas fa-user text-blue-500 mr-2"></i>Full Name*
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input w-full border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div class="group">
+                    <label
+                      for="mobile"
+                      class="block text-gray-700 font-medium mb-2"
+                    >
+                      <i class="fas fa-mobile-alt text-blue-500 mr-2"></i
+                      >Mobile*
+                    </label>
+                    <input
+                      type="tel"
+                      id="mobile"
+                      name="mobile"
+                      class="form-input w-full border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                      placeholder="10-digit mobile number"
+                      required
+                      maxlength="10"
+                      minlength="10"
+                      pattern=".{10,}"
+                      oninput="validateMobileNumber(this)"
+                      title="Please Enter a Valid Mobile Number"
+                    />
+                  </div>
+
+                  <div class="group">
+                    <label
+                      for="whatsapp"
+                      class="block text-gray-700 font-medium mb-2"
+                    >
+                      <i class="fab fa-whatsapp text-green-500 mr-2"></i
+                      >WhatsApp
+                    </label>
+                    <input
+                      type="tel"
+                      id="whatsapp"
+                      name="whatsapp"
+                      class="form-input w-full border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                      placeholder="Optional WhatsApp number"
+                    />
+                  </div>
+                </div>
+
+                <div class="group">
+                  <label
+                    for="email"
+                    class="block text-gray-700 font-medium mb-2"
+                  >
+                    <i class="fas fa-envelope text-blue-500 mr-2"></i>Email
+                    Address*
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input w-full border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                </div>
+
+                <div class="group">
+                  <label
+                    for="message"
+                    class="block text-gray-700 font-medium mb-2"
+                  >
+                    <i class="fas fa-comment-alt text-blue-500 mr-2"></i>Your
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="form-input w-full border border-gray-300 rounded-xl p-4 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="Tell us about your SAP training requirements, preferred module, or any questions..."
+                    rows="5"
+                  ></textarea>
+                </div>
+
+                <p
+                  id="contact-form-status"
+                  class="text-red-600 text-center"
+                ></p>
+
+                <div class="pt-4">
+                  <button
+                    type="submit"
+                    id="contact-form-button"
+                    class="submit-button w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 text-lg"
+                  >
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Send Message
+                  </button>
+                  <p class="text-gray-500 text-sm text-center mt-4">
+                    By submitting this form, you agree to our
+                    <a href="#" class="text-blue-600 hover:underline"
+                      >Privacy Policy</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Quick Response Banner -->
+          <div
+            class="mt-8 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 text-white text-center animate-fade-in"
+          >
+            <div class="flex items-center justify-center mb-3">
+              <i class="fas fa-bolt text-yellow-300 text-2xl mr-3"></i>
+              <h4 class="text-xl font-bold">Quick Response Guaranteed</h4>
+            </div>
+            <p class="text-blue-100">
+              We understand the importance of your SAP career decisions. Expect
+              a response within 24 hours.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <!-- Contact End -->
+
+    <!-- Additional Info Section -->
+    <div class="bg-gradient-to-b from-white to-gray-50 py-16">
+      <div class="container max-w-7xl mx-auto px-4">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Why Choose Technopad?
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Get in touch with India's leading SAP training institute
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center p-6 animate-scale-in">
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-chalkboard-teacher text-blue-600 text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">
+              Expert Trainers
+            </h4>
+            <p class="text-gray-600">
+              Learn from certified SAP professionals with 14+ years industry
+              experience
+            </p>
+          </div>
+
+          <div
+            class="text-center p-6 animate-scale-in"
+            style="animation-delay: 0.1s"
+          >
+            <div
+              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-briefcase text-green-600 text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">
+              100% Placement Support
+            </h4>
+            <p class="text-gray-600">
+              Comprehensive career guidance and placement assistance
+            </p>
+          </div>
+
+          <div
+            class="text-center p-6 animate-scale-in"
+            style="animation-delay: 0.2s"
+          >
+            <div
+              class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="fas fa-laptop-code text-purple-600 text-2xl"></i>
+            </div>
+            <h4 class="text-xl font-bold text-gray-900 mb-3">Live Projects</h4>
+            <p class="text-gray-600">
+              Hands-on training with real-time SAP implementation projects
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div id="footer" class="bg-gray-900"></div>
 
-    <!-- mobile number vaidation -->
+    <!-- JavaScript for Animations -->
     <script>
+      // Scroll animation
+      function animateOnScroll() {
+        const elements = document.querySelectorAll(
+          ".animate-on-scroll, .animate-fade-in, .animate-scale-in, .animate-slide-left, .animate-slide-right"
+        );
+
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add("animated");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+      animateOnScroll();
+
+      // mobile number validation (existing functionality preserved)
       function validateMobileNumber(input) {
         const value = input.value;
-        // Remove non-digit characters and limit to 10 digits
         input.value = value.replace(/\D/g, "").slice(0, 10);
       }
     </script>
-    <!-- form submission  -->
-    <script>
-      // var form = document.getElementById("contact-form");
 
-      // async function handleSubmit(event) {
-      //     event.preventDefault();
-      //     var status = document.getElementById("contact-form-status");
-      //     var submit = document.getElementById("contact-form-button");
-      //     submit.setAttribute("disabled", true);
-      //     submit.innerHTML = 'Sending...';
-      //     var data = new FormData(event.target);
-      //     let mobile = data.get('mobile');
-      //     if (mobile.length === 10 && ["9", "8", '7', '6'].some(num => mobile.startsWith(num))) {
-      //         fetch(event.target.action, {
-      //             method: form.method,
-      //             body: data,
-      //             headers: {
-      //                 'Accept': 'application/json'
-      //             }
-      //         }).then(response => {
-      //             if (response.ok) {
-      //                 status.innerHTML = "Thanks for your submission!";
-      //                 form.reset();
-      //                 submit.setAttribute('disabled', false);
-      //                 submit.innerHTML = 'Send Message';
-      //                 window.location.replace('/');
-      //             } else {
-      //                 response.json().then(data => {
-      //                     if (Object.hasOwn(data, 'errors')) {
-      //                         status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-      //                     } else {
-      //                         status.innerHTML = "Oops! There was a problem submitting your form"
-      //                     }
-      //                 })
-      //             }
-      //         }).catch(error => {
-      //             status.innerHTML = "Oops! There was a problem submitting your form"
-      //         });
-      //     }
-      //     else {
-      //         status.innerHTML = "Oops! Please Enter a Valid Mobile Number"
-      //         submit.setAttribute('disabled', false);
-      //         submit.innerHTML = 'Send Message';
-      //     }
-      // }
-      // form.addEventListener("submit", handleSubmit)
+    <!-- Form submission (existing functionality preserved) -->
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "KdB7a_GBrO45ZSNUz",
+        });
+      })();
+
+      window.onload = function () {
+        document
+          .getElementById("contact-form")
+          .addEventListener("submit", function (event) {
+            event.preventDefault();
+            const button = document.getElementById("contact-form-button");
+            const originalText = button.innerHTML;
+
+            // Show loading state
+            button.innerHTML =
+              '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            button.disabled = true;
+
+            emailjs.sendForm("service_1wbq43b", "template_9429o5b", this).then(
+              () => {
+                document.getElementById("contact-form").reset();
+                button.innerHTML =
+                  '<i class="fas fa-check mr-2"></i>Message Sent!';
+                button.style.background =
+                  "linear-gradient(to right, #10b981, #059669)";
+
+                // Reset button after 2 seconds
+                setTimeout(() => {
+                  button.innerHTML = originalText;
+                  button.disabled = false;
+                  button.style.background = "";
+                  window.location.replace("/thank-you");
+                }, 2000);
+              },
+              (error) => {
+                document.getElementById("contact-form-status").textContent =
+                  "Failed to send message. Please try again.";
+                button.innerHTML = originalText;
+                button.disabled = false;
+                console.error("EmailJS error:", error);
+              }
+            );
+          });
+      };
     </script>
+
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"
       ><i class="bi bi-arrow-up"></i
@@ -345,41 +837,8 @@
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-    ></script>
-    <script type="text/javascript">
-      (function () {
-        // https://dashboard.emailjs.com/admin/account
-        emailjs.init({
-          publicKey: "KdB7a_GBrO45ZSNUz",
-        });
-      })();
-    </script>
-    <script type="text/javascript">
-      window.onload = function () {
-        document
-          .getElementById("contact-form")
-          .addEventListener("submit", function (event) {
-            event.preventDefault();
-            // these IDs from the previous steps
-            emailjs.sendForm("service_1wbq43b", "template_9429o5b", this).then(
-              () => {
-                // window.alert("Form Submitted Successfully");
-                document.getElementById("contact-form").reset();
-                window.location.replace("/thank-you");
-              },
-              (error) => {
-                window.alert("FAILED...", error);
-              }
-            );
-          });
-      };
-    </script>
   </body>
 </html>
