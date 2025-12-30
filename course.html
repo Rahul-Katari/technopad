@@ -33,12 +33,160 @@
     <link href="css/style.css" rel="stylesheet" />
 
     <style>
-      .course-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      /* Animation Classes */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .animate-fade-in {
+        opacity: 0;
+        transition: all 1s ease-out;
+      }
+
+      .animate-fade-in.animated {
+        opacity: 1;
+      }
+
+      .animate-slide-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .animate-slide-left.animated {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .animate-slide-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .animate-slide-right.animated {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .animate-scale-in {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .animate-scale-in.animated {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .animate-stagger {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .animate-stagger.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Enhanced Card Hover Effects */
+      .course-card {
+        transform: translateY(0);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .course-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transition: left 0.7s ease;
+        z-index: 1;
+      }
+
+      .course-card:hover::before {
+        left: 100%;
+      }
+
+      .course-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .course-card .icon-wrapper {
+        transition: all 0.4s ease;
+      }
+
+      .course-card:hover .icon-wrapper {
+        transform: rotateY(180deg);
+      }
+
+      /* Section Backgrounds */
+      .section-light {
+        background-color: #ffffff;
+      }
+
+      .section-dark {
+        background-color: #f8fafc;
+      }
+
+      /* Feature Card Animations */
+      .feature-card {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-card .icon-circle {
+        transition: all 0.4s ease;
+      }
+
+      .feature-card:hover .icon-circle {
+        transform: scale(1.1);
+        background: linear-gradient(
+          135deg,
+          var(--icon-color, #3b82f6) 0%,
+          var(--icon-color-light, #60a5fa) 100%
+        ) !important;
+      }
+
+      .feature-card:hover .icon-circle i {
+        color: white !important;
+      }
+
+      /* Testimonial Animations */
+      .testimonial-card {
+        transition: all 0.4s ease;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Floating Animation */
       .floating-btn {
         animation: float 3s ease-in-out infinite;
       }
@@ -47,16 +195,15 @@
         0% {
           transform: translateY(0px);
         }
-
         50% {
-          transform: translateY(-10px);
+          transform: translateY(-15px);
         }
-
         100% {
           transform: translateY(0px);
         }
       }
 
+      /* Highlight Box */
       .highlight-box {
         position: relative;
         overflow: hidden;
@@ -70,6 +217,80 @@
         width: 5px;
         height: 100%;
         background: linear-gradient(to bottom, #3b82f6, #10b981);
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.6s ease;
+      }
+
+      .highlight-box:hover::before {
+        transform: scaleY(1);
+      }
+
+      /* Gradient Text Animation */
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f093fb 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 200% 200%;
+        animation: gradient-shift 5s ease infinite;
+      }
+
+      @keyframes gradient-shift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Button Hover Effects */
+      .animated-button {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s ease;
+      }
+
+      .animated-button::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      .animated-button:hover::after {
+        width: 300px;
+        height: 300px;
+      }
+
+      /* Page Load Animation */
+      @keyframes pageLoad {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .page-load-animation {
+        animation: pageLoad 0.8s ease-out;
       }
     </style>
   </head>
@@ -88,9 +309,9 @@
     <div id="header"></div>
 
     <!-- Hero Section -->
-    <section class="bg-theme py-16">
+    <section class="bg-theme py-16 section-gradient-dark page-load-animation">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-12 text-white">
+        <div class="text-center mb-12 text-white animate-on-scroll">
           <h2 class="text-4xl md:text-5xl font-bold mb-4">
             Become an SAP Expert with Technopad
           </h2>
@@ -107,135 +328,227 @@
         >
           <!-- SAP FICO Card -->
           <div
-            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card transition-all duration-300"
+            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card animate-stagger"
+            style="--icon-color: #3b82f6; --icon-color-light: #60a5fa"
           >
             <div class="flex items-center mb-4">
-              <i class="fas fa-calculator text-3xl mr-3 text-blue-600"></i>
+              <div
+                class="icon-wrapper w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-calculator text-blue-600 text-2xl"></i>
+              </div>
               <h3 class="text-xl font-bold">SAP FICO</h3>
             </div>
-            <p class="mb-6 text-gray-600">Financial Accounting & Controlling</p>
+            <p class="mb-6 text-gray-600">
+              Financial Accounting & Controlling in ECC & S/4 HANA
+            </p>
             <div>
               <a
                 href="#fico"
-                class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+                class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition animated-button"
               >
-                Explore Course <i class="fas fa-arrow-right ml-2"></i>
+                Explore Course
+                <i
+                  class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"
+                ></i>
               </a>
             </div>
           </div>
 
           <!-- SAP ABAP Card -->
           <div
-            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card transition-all duration-300"
+            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card animate-stagger"
+            style="
+              animation-delay: 0.1s;
+              --icon-color: #f59e0b;
+              --icon-color-light: #fbbf24;
+            "
           >
             <div class="flex items-center mb-4">
-              <i class="fas fa-code text-3xl mr-3 text-yellow-600"></i>
+              <div
+                class="icon-wrapper w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-code text-yellow-600 text-2xl"></i>
+              </div>
               <h3 class="text-xl font-bold">SAP ABAP</h3>
             </div>
             <p class="mb-6 text-gray-600">
-              Advanced Business Application Programming
+              Advanced Business Application Programming in ECC & S/4 HANA
             </p>
             <div>
               <a
                 href="#abap"
-                class="inline-flex items-center px-4 py-2 bg-yellow-600 text-white rounded-lg font-medium hover:bg-yellow-700 transition"
+                class="inline-flex items-center px-4 py-2 bg-yellow-600 text-white rounded-lg font-medium hover:bg-yellow-700 transition animated-button"
               >
-                Explore Course <i class="fas fa-arrow-right ml-2"></i>
+                Explore Course
+                <i
+                  class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"
+                ></i>
               </a>
             </div>
           </div>
 
           <!-- SAP MM Card -->
           <div
-            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card transition-all duration-300"
+            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card animate-stagger"
+            style="
+              animation-delay: 0.2s;
+              --icon-color: #10b981;
+              --icon-color-light: #34d399;
+            "
           >
             <div class="flex items-center mb-4">
-              <i class="fas fa-building text-3xl mr-3 text-green-600"></i>
+              <div
+                class="icon-wrapper w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-building text-green-600 text-2xl"></i>
+              </div>
               <h3 class="text-xl font-bold">SAP MM</h3>
             </div>
-            <p class="mb-6 text-gray-600">Materials Management</p>
+            <p class="mb-6 text-gray-600">
+              Materials Management in ECC & S/4 HANA
+            </p>
             <div>
               <a
                 href="#mm"
-                class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition"
+                class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition animated-button"
               >
-                Explore Course <i class="fas fa-arrow-right ml-2"></i>
+                Explore Course
+                <i
+                  class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"
+                ></i>
               </a>
             </div>
           </div>
 
           <!-- SAP SD Card -->
           <div
-            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card transition-all duration-300"
+            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card animate-stagger"
+            style="
+              animation-delay: 0.3s;
+              --icon-color: #ef4444;
+              --icon-color-light: #f87171;
+            "
           >
             <div class="flex items-center mb-4">
-              <i class="fas fa-shipping-fast text-3xl mr-3 text-red-600"></i>
+              <div
+                class="icon-wrapper w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-shipping-fast text-red-600 text-2xl"></i>
+              </div>
               <h3 class="text-xl font-bold">SAP SD</h3>
             </div>
-            <p class="mb-6 text-gray-600">Sales & Distribution</p>
+            <p class="mb-6 text-gray-600">
+              Sales & Distribution in ECC & S/4 HANA
+            </p>
             <div>
               <a
                 href="#sd"
-                class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition"
+                class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition animated-button"
               >
-                Explore Course <i class="fas fa-arrow-right ml-2"></i>
+                Explore Course
+                <i
+                  class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"
+                ></i>
               </a>
             </div>
           </div>
 
           <!-- SAP BASIS Card -->
           <div
-            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card transition-all duration-300"
+            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card animate-stagger"
+            style="
+              animation-delay: 0.4s;
+              --icon-color: #8b5cf6;
+              --icon-color-light: #a78bfa;
+            "
           >
             <div class="flex items-center mb-4">
-              <i class="fas fa-server text-3xl mr-3 text-purple-600"></i>
+              <div
+                class="icon-wrapper w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-server text-purple-600 text-2xl"></i>
+              </div>
               <h3 class="text-xl font-bold">SAP BASIS</h3>
             </div>
-            <p class="mb-6 text-gray-600">System Administration</p>
+            <p class="mb-6 text-gray-600">
+              System Administration in ECC & S/4 HANA
+            </p>
             <div>
               <a
                 href="#basis"
-                class="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition"
+                class="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition animated-button"
               >
-                Explore Course <i class="fas fa-arrow-right ml-2"></i>
+                Explore Course
+                <i
+                  class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"
+                ></i>
               </a>
             </div>
           </div>
 
           <!-- SAP HCM Card -->
           <div
-            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card transition-all duration-300"
+            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card animate-stagger"
+            style="
+              animation-delay: 0.5s;
+              --icon-color: #ec4899;
+              --icon-color-light: #f472b6;
+            "
           >
             <div class="flex items-center mb-4">
-              <i class="fas fa-users text-3xl mr-3 text-pink-600"></i>
+              <div
+                class="icon-wrapper w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-users text-pink-600 text-2xl"></i>
+              </div>
               <h3 class="text-xl font-bold">SAP HCM</h3>
             </div>
-            <p class="mb-6 text-gray-600">Human Capital Management</p>
+            <p class="mb-6 text-gray-600">
+              Human Capital Management in ECC & S/4 HANA
+            </p>
             <div>
               <a
                 href="#hcm"
-                class="inline-flex items-center px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition"
+                class="inline-flex items-center px-4 py-2 bg-pink-600 text-white rounded-lg font-medium hover:bg-pink-700 transition animated-button"
               >
-                Explore Course <i class="fas fa-arrow-right ml-2"></i>
+                Explore Course
+                <i
+                  class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"
+                ></i>
               </a>
             </div>
           </div>
 
           <!-- SAP SUCCESS FACTORS Card -->
           <div
-            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card transition-all duration-300"
+            class="bg-white flex flex-col justify-between text-[#012150] rounded-xl p-6 course-card animate-stagger"
+            style="
+              animation-delay: 0.6s;
+              --icon-color: #f59e0b;
+              --icon-color-light: #fbbf24;
+            "
           >
             <div class="flex items-center mb-4">
-              <i class="fas fa-chart-line text-3xl mr-3 text-orange-600"></i>
+              <div
+                class="icon-wrapper w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-chart-line text-orange-600 text-2xl"></i>
+              </div>
               <h3 class="text-xl font-bold">SAP SUCCESS FACTORS</h3>
             </div>
-            <p class="mb-6 text-gray-600">Cloud-based HCM Suite</p>
+            <p class="mb-6 text-gray-600">
+              Cloud-based HCM Suite in ECC & S/4 HANA
+            </p>
             <div>
               <a
                 href="#successfactors"
-                class="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 transition"
+                class="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 transition animated-button"
               >
-                Explore Course <i class="fas fa-arrow-right ml-2"></i>
+                Explore Course
+                <i
+                  class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"
+                ></i>
               </a>
             </div>
           </div>
@@ -244,19 +557,22 @@
     </section>
 
     <!-- Benefits Section -->
-    <section id="benefits" class="py-16 bg-white">
+    <section id="benefits" class="py-16 bg-white section-light">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-3xl font-bold text-gray-800 mb-4">
             Why Choose Technopad for SAP Training?
           </h2>
-          <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+          <div class="w-24 h-1 bg-blue-600 mx-auto animate-scale-in"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div class="bg-gray-50 p-6 rounded-xl hover:shadow-md transition">
+          <div
+            class="bg-gray-50 p-6 rounded-xl feature-card animate-slide-left"
+            style="--icon-color: #3b82f6; --icon-color-light: #60a5fa"
+          >
             <div
-              class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="icon-circle bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
             >
               <i class="fas fa-chalkboard-teacher text-2xl text-blue-600"></i>
             </div>
@@ -269,9 +585,16 @@
             </p>
           </div>
 
-          <div class="bg-gray-50 p-6 rounded-xl hover:shadow-md transition">
+          <div
+            class="bg-gray-50 p-6 rounded-xl feature-card animate-slide-left"
+            style="
+              animation-delay: 0.1s;
+              --icon-color: #10b981;
+              --icon-color-light: #34d399;
+            "
+          >
             <div
-              class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="icon-circle bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
             >
               <i class="fas fa-laptop-code text-2xl text-green-600"></i>
             </div>
@@ -283,9 +606,16 @@
             </p>
           </div>
 
-          <div class="bg-gray-50 p-6 rounded-xl hover:shadow-md transition">
+          <div
+            class="bg-gray-50 p-6 rounded-xl feature-card animate-slide-left"
+            style="
+              animation-delay: 0.2s;
+              --icon-color: #8b5cf6;
+              --icon-color-light: #a78bfa;
+            "
+          >
             <div
-              class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="icon-circle bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
             >
               <i class="fas fa-briefcase text-2xl text-purple-600"></i>
             </div>
@@ -297,9 +627,16 @@
             </p>
           </div>
 
-          <div class="bg-gray-50 p-6 rounded-xl hover:shadow-md transition">
+          <div
+            class="bg-gray-50 p-6 rounded-xl feature-card animate-slide-left"
+            style="
+              animation-delay: 0.3s;
+              --icon-color: #8b5cf6;
+              --icon-color-light: #a78bfa;
+            "
+          >
             <div
-              class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="icon-circle bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
             >
               <i class="fas fa-clipboard-check text-2xl text-purple-600"></i>
             </div>
@@ -318,10 +655,10 @@
     <!-- SAP FICO Section -->
     <section
       id="fico"
-      class="py-16 bg-gradient-to-br from-blue-50 to-indigo-100"
+      class="py-16 bg-gradient-to-br from-blue-50 to-indigo-100 section-dark"
     >
       <div class="container mx-auto px-4 max-w-6xl">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl font-bold text-gray-800 mb-4">
             SAP FICO Training
           </h2>
@@ -335,7 +672,7 @@
           <!-- Left Column -->
           <div class="space-y-8">
             <!-- Key Features -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-blue-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-star text-blue-600 text-xl"></i>
@@ -372,7 +709,8 @@
 
             <!-- Training Duration -->
             <div
-              class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl shadow-lg p-6 text-white"
+              class="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl shadow-lg p-6 text-white animate-scale-in"
+              style="animation-delay: 0.1s"
             >
               <div class="flex items-center mb-4">
                 <div class="bg-white bg-opacity-20 p-2 rounded-lg mr-4">
@@ -391,7 +729,7 @@
           <!-- Right Column -->
           <div class="space-y-8">
             <!-- Who Should Join? -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-green-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-users text-green-600 text-xl"></i>
@@ -423,7 +761,10 @@
             </div>
 
             <!-- Course Highlights -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 animate-scale-in"
+              style="animation-delay: 0.1s"
+            >
               <div class="flex items-center mb-4">
                 <div class="bg-purple-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-trophy text-purple-600 text-xl"></i>
@@ -458,7 +799,7 @@
         <div class="text-center mt-12">
           <button
             onclick="openModal('FICO')"
-            class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            class="bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 animated-button floating-btn"
           >
             Download SAP FICO Program Brochure
           </button>
@@ -469,10 +810,10 @@
     <!-- SAP ABAP Section -->
     <section
       id="abap"
-      class="py-16 bg-gradient-to-br from-yellow-50 to-orange-100"
+      class="py-16 bg-gradient-to-br from-yellow-50 to-orange-100 section-light"
     >
       <div class="container mx-auto px-4 max-w-6xl">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl font-bold text-gray-800 mb-4">
             SAP ABAP Training
           </h2>
@@ -486,7 +827,7 @@
           <!-- Left Column -->
           <div class="space-y-8">
             <!-- Key Features -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-yellow-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-code text-yellow-600 text-xl"></i>
@@ -521,7 +862,8 @@
 
             <!-- Training Duration -->
             <div
-              class="bg-gradient-to-r from-yellow-500 to-orange-600 rounded-xl shadow-lg p-6 text-white"
+              class="bg-gradient-to-r from-yellow-500 to-orange-600 rounded-xl shadow-lg p-6 text-white animate-scale-in"
+              style="animation-delay: 0.1s"
             >
               <div class="flex items-center mb-4">
                 <div class="bg-white bg-opacity-20 p-2 rounded-lg mr-4">
@@ -540,7 +882,7 @@
           <!-- Right Column -->
           <div class="space-y-8">
             <!-- Who Should Join? -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-green-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-users text-green-600 text-xl"></i>
@@ -568,7 +910,10 @@
             </div>
 
             <!-- Course Highlights -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 animate-scale-in"
+              style="animation-delay: 0.1s"
+            >
               <div class="flex items-center mb-4">
                 <div class="bg-purple-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-trophy text-purple-600 text-xl"></i>
@@ -605,7 +950,7 @@
         <div class="text-center mt-12">
           <button
             onclick="openModal('ABAP')"
-            class="bg-gradient-to-r from-yellow-600 to-orange-700 hover:from-yellow-700 hover:to-orange-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            class="bg-gradient-to-r from-yellow-600 to-orange-700 hover:from-yellow-700 hover:to-orange-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 animated-button floating-btn"
           >
             Download SAP ABAP Program Brochure
           </button>
@@ -614,9 +959,12 @@
     </section>
 
     <!-- SAP MM Section -->
-    <section id="mm" class="py-16 bg-gradient-to-br from-green-50 to-teal-100">
+    <section
+      id="mm"
+      class="py-16 bg-gradient-to-br from-green-50 to-teal-100 section-dark"
+    >
       <div class="container mx-auto px-4 max-w-6xl">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl font-bold text-gray-800 mb-4">SAP MM Training</h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             Become proficient in Materials Management module of SAP with
@@ -628,7 +976,7 @@
           <!-- Left Column -->
           <div class="space-y-8">
             <!-- Key Features -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-green-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-warehouse text-green-600 text-xl"></i>
@@ -665,7 +1013,8 @@
 
             <!-- Training Duration -->
             <div
-              class="bg-gradient-to-r from-green-500 to-teal-600 rounded-xl shadow-lg p-6 text-white"
+              class="bg-gradient-to-r from-green-500 to-teal-600 rounded-xl shadow-lg p-6 text-white animate-scale-in"
+              style="animation-delay: 0.1s"
             >
               <div class="flex items-center mb-4">
                 <div class="bg-white bg-opacity-20 p-2 rounded-lg mr-4">
@@ -684,7 +1033,7 @@
           <!-- Right Column -->
           <div class="space-y-8">
             <!-- Who Should Join? -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-blue-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-users text-blue-600 text-xl"></i>
@@ -716,7 +1065,10 @@
             </div>
 
             <!-- Course Highlights -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 animate-scale-in"
+              style="animation-delay: 0.1s"
+            >
               <div class="flex items-center mb-4">
                 <div class="bg-purple-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-trophy text-purple-600 text-xl"></i>
@@ -751,7 +1103,7 @@
         <div class="text-center mt-12">
           <button
             onclick="openModal('MM')"
-            class="bg-gradient-to-r from-green-600 to-teal-700 hover:from-green-700 hover:to-teal-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            class="bg-gradient-to-r from-green-600 to-teal-700 hover:from-green-700 hover:to-teal-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 animated-button floating-btn"
           >
             Download SAP MM Program Brochure
           </button>
@@ -760,9 +1112,12 @@
     </section>
 
     <!-- SAP SD Section -->
-    <section id="sd" class="py-16 bg-gradient-to-br from-red-50 to-pink-100">
+    <section
+      id="sd"
+      class="py-16 bg-gradient-to-br from-red-50 to-pink-100 section-light"
+    >
       <div class="container mx-auto px-4 max-w-6xl">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl font-bold text-gray-800 mb-4">SAP SD Training</h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             Learn the Sales and Distribution module of SAP to manage sales
@@ -774,7 +1129,7 @@
           <!-- Left Column -->
           <div class="space-y-8">
             <!-- Key Features -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-red-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-shipping-fast text-red-600 text-xl"></i>
@@ -811,7 +1166,8 @@
 
             <!-- Training Duration -->
             <div
-              class="bg-gradient-to-r from-red-500 to-pink-600 rounded-xl shadow-lg p-6 text-white"
+              class="bg-gradient-to-r from-red-500 to-pink-600 rounded-xl shadow-lg p-6 text-white animate-scale-in"
+              style="animation-delay: 0.1s"
             >
               <div class="flex items-center mb-4">
                 <div class="bg-white bg-opacity-20 p-2 rounded-lg mr-4">
@@ -830,7 +1186,7 @@
           <!-- Right Column -->
           <div class="space-y-8">
             <!-- Who Should Join? -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-blue-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-users text-blue-600 text-xl"></i>
@@ -860,7 +1216,10 @@
             </div>
 
             <!-- Course Highlights -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 animate-scale-in"
+              style="animation-delay: 0.1s"
+            >
               <div class="flex items-center mb-4">
                 <div class="bg-purple-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-trophy text-purple-600 text-xl"></i>
@@ -895,7 +1254,7 @@
         <div class="text-center mt-12">
           <button
             onclick="openModal('SD')"
-            class="bg-gradient-to-r from-red-600 to-pink-700 hover:from-red-700 hover:to-pink-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            class="bg-gradient-to-r from-red-600 to-pink-700 hover:from-red-700 hover:to-pink-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 animated-button floating-btn"
           >
             Download SAP SD Program Brochure
           </button>
@@ -906,10 +1265,10 @@
     <!-- SAP BASIS Section -->
     <section
       id="basis"
-      class="py-16 bg-gradient-to-br from-purple-50 to-violet-100"
+      class="py-16 bg-gradient-to-br from-purple-50 to-violet-100 section-dark"
     >
       <div class="container mx-auto px-4 max-w-6xl">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl font-bold text-gray-800 mb-4">
             SAP BASIS Training
           </h2>
@@ -923,7 +1282,7 @@
           <!-- Left Column -->
           <div class="space-y-8">
             <!-- Key Features -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-purple-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-server text-purple-600 text-xl"></i>
@@ -958,7 +1317,8 @@
 
             <!-- Training Duration -->
             <div
-              class="bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl shadow-lg p-6 text-white"
+              class="bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl shadow-lg p-6 text-white animate-scale-in"
+              style="animation-delay: 0.1s"
             >
               <div class="flex items-center mb-4">
                 <div class="bg-white bg-opacity-20 p-2 rounded-lg mr-4">
@@ -977,7 +1337,7 @@
           <!-- Right Column -->
           <div class="space-y-8">
             <!-- Who Should Join? -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-blue-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-users text-blue-600 text-xl"></i>
@@ -1009,7 +1369,10 @@
             </div>
 
             <!-- Course Highlights -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 animate-scale-in"
+              style="animation-delay: 0.1s"
+            >
               <div class="flex items-center mb-4">
                 <div class="bg-orange-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-trophy text-orange-600 text-xl"></i>
@@ -1046,7 +1409,7 @@
         <div class="text-center mt-12">
           <button
             onclick="openModal('BASIS')"
-            class="bg-gradient-to-r from-purple-600 to-violet-700 hover:from-purple-700 hover:to-violet-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            class="bg-gradient-to-r from-purple-600 to-violet-700 hover:from-purple-700 hover:to-violet-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 animated-button floating-btn"
           >
             Download SAP BASIS Program Brochure
           </button>
@@ -1055,9 +1418,12 @@
     </section>
 
     <!-- SAP HCM Section -->
-    <section id="hcm" class="py-16 bg-gradient-to-br from-pink-50 to-rose-100">
+    <section
+      id="hcm"
+      class="py-16 bg-gradient-to-br from-pink-50 to-rose-100 section-light"
+    >
       <div class="container mx-auto px-4 max-w-6xl">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl font-bold text-gray-800 mb-4">
             SAP HCM Training
           </h2>
@@ -1071,7 +1437,7 @@
           <!-- Left Column -->
           <div class="space-y-8">
             <!-- Key Features -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-pink-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-users text-pink-600 text-xl"></i>
@@ -1108,7 +1474,8 @@
 
             <!-- Training Duration -->
             <div
-              class="bg-gradient-to-r from-pink-500 to-rose-600 rounded-xl shadow-lg p-6 text-white"
+              class="bg-gradient-to-r from-pink-500 to-rose-600 rounded-xl shadow-lg p-6 text-white animate-scale-in"
+              style="animation-delay: 0.1s"
             >
               <div class="flex items-center mb-4">
                 <div class="bg-white bg-opacity-20 p-2 rounded-lg mr-4">
@@ -1127,7 +1494,7 @@
           <!-- Right Column -->
           <div class="space-y-8">
             <!-- Who Should Join? -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-blue-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-users text-blue-600 text-xl"></i>
@@ -1159,7 +1526,10 @@
             </div>
 
             <!-- Course Highlights -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 animate-scale-in"
+              style="animation-delay: 0.1s"
+            >
               <div class="flex items-center mb-4">
                 <div class="bg-purple-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-trophy text-purple-600 text-xl"></i>
@@ -1196,7 +1566,7 @@
         <div class="text-center mt-12">
           <button
             onclick="openModal('HCM')"
-            class="bg-gradient-to-r from-pink-600 to-rose-700 hover:from-pink-700 hover:to-rose-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            class="bg-gradient-to-r from-pink-600 to-rose-700 hover:from-pink-700 hover:to-rose-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 animated-button floating-btn"
           >
             Download SAP HCM Program Brochure
           </button>
@@ -1207,10 +1577,10 @@
     <!-- SAP SUCCESS FACTORS Section -->
     <section
       id="successfactors"
-      class="py-16 bg-gradient-to-br from-orange-50 to-amber-100"
+      class="py-16 bg-gradient-to-br from-orange-50 to-amber-100 section-dark"
     >
       <div class="container mx-auto px-4 max-w-6xl">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-4xl font-bold text-gray-800 mb-4">
             SAP SUCCESS FACTORS Training
           </h2>
@@ -1224,7 +1594,7 @@
           <!-- Left Column -->
           <div class="space-y-8">
             <!-- Key Features -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-orange-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-chart-line text-orange-600 text-xl"></i>
@@ -1261,7 +1631,8 @@
 
             <!-- Training Duration -->
             <div
-              class="bg-gradient-to-r from-orange-500 to-amber-600 rounded-xl shadow-lg p-6 text-white"
+              class="bg-gradient-to-r from-orange-500 to-amber-600 rounded-xl shadow-lg p-6 text-white animate-scale-in"
+              style="animation-delay: 0.1s"
             >
               <div class="flex items-center mb-4">
                 <div class="bg-white bg-opacity-20 p-2 rounded-lg mr-4">
@@ -1280,7 +1651,7 @@
           <!-- Right Column -->
           <div class="space-y-8">
             <!-- Who Should Join? -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div class="bg-white rounded-xl shadow-lg p-6 animate-scale-in">
               <div class="flex items-center mb-4">
                 <div class="bg-blue-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-users text-blue-600 text-xl"></i>
@@ -1312,7 +1683,10 @@
             </div>
 
             <!-- Course Highlights -->
-            <div class="bg-white rounded-xl shadow-lg p-6">
+            <div
+              class="bg-white rounded-xl shadow-lg p-6 animate-scale-in"
+              style="animation-delay: 0.1s"
+            >
               <div class="flex items-center mb-4">
                 <div class="bg-purple-100 p-2 rounded-lg mr-4">
                   <i class="fas fa-trophy text-purple-600 text-xl"></i>
@@ -1349,7 +1723,7 @@
         <div class="text-center mt-12">
           <button
             onclick="openModal('SUCCESS FACTORS')"
-            class="bg-gradient-to-r from-orange-600 to-amber-700 hover:from-orange-700 hover:to-amber-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105"
+            class="bg-gradient-to-r from-orange-600 to-amber-700 hover:from-orange-700 hover:to-amber-800 text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg transition-all duration-300 transform hover:scale-105 animated-button floating-btn"
           >
             Download SAP SUCCESS FACTORS Program Brochure
           </button>
@@ -1358,9 +1732,9 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-gray-100">
+    <section id="testimonials" class="py-16 bg-gray-100 section-light">
       <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 animate-on-scroll">
           <h2 class="text-3xl font-bold text-gray-800 mb-4">
             What Our Students Say
           </h2>
@@ -1371,7 +1745,9 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div
+            class="bg-white p-6 rounded-xl shadow-sm testimonial-card animate-stagger"
+          >
             <div class="flex items-center mb-4">
               <div
                 class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3"
@@ -1397,7 +1773,10 @@
             </div>
           </div>
 
-          <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div
+            class="bg-white p-6 rounded-xl shadow-sm testimonial-card animate-stagger"
+            style="animation-delay: 0.1s"
+          >
             <div class="flex items-center mb-4">
               <div
                 class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-3"
@@ -1423,7 +1802,10 @@
             </div>
           </div>
 
-          <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div
+            class="bg-white p-6 rounded-xl shadow-sm testimonial-card animate-stagger"
+            style="animation-delay: 0.2s"
+          >
             <div class="flex items-center mb-4">
               <div
                 class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-3"
@@ -1453,25 +1835,27 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-theme text-white">
+    <section class="py-16 bg-theme text-white section-gradient-dark">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-on-scroll">
           Ready to Start Your SAP Career?
         </h2>
-        <p class="text-xl mb-8 max-w-3xl mx-auto">
+        <p class="text-xl mb-8 max-w-3xl mx-auto animate-fade-in">
           Join thousands of successful professionals who transformed their
           careers with Technopad
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in"
+        >
           <a
             href="#"
-            class="bg-white text-black px-8 py-3 rounded-md font-bold hover:bg-gray-100 transition duration-300 hover:scale-105 transform"
+            class="bg-white text-black px-8 py-3 rounded-md font-bold hover:bg-gray-100 transition duration-300 hover:scale-105 transform animated-button"
           >
             Explore All Courses
           </a>
           <a
             href="#"
-            class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-md font-bold hover:bg-white hover:text-black transition duration-300"
+            class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-md font-bold hover:bg-white hover:text-black transition duration-300 animated-button"
           >
             Contact Us
           </a>
@@ -1484,7 +1868,9 @@
       id="brochureModal"
       class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50"
     >
-      <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+      <div
+        class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md animate-scale-in"
+      >
         <h3 id="modalTitle" class="text-xl font-bold mb-4">
           Download Brochure
         </h3>
@@ -1500,7 +1886,7 @@
                 id="name"
                 name="name"
                 required
-                class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all duration-300 focus:scale-[1.02]"
                 placeholder="Your Name"
               />
             </div>
@@ -1518,7 +1904,7 @@
                 pattern=".{10,}"
                 oninput="validateMobileNumber(this)"
                 title="Please Enter a Valid Mobile Number"
-                class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all duration-300 focus:scale-[1.02]"
                 placeholder="Mobile"
               />
             </div>
@@ -1531,23 +1917,23 @@
                 id="email"
                 name="email"
                 required
-                class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all duration-300 focus:scale-[1.02]"
                 placeholder="Email"
               />
             </div>
             <p id="brochure-form-status" class="text-red-600"></p>
-            <div class="flex justify-end">
+            <div class="flex justify-end space-x-2">
               <button
                 type="button"
                 onclick="closeModal()"
-                class="px-4 py-2 bg-gray-300 rounded-lg mr-2"
+                class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition duration-300"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 id="brochure-form-button"
-                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300 animated-button"
               >
                 Submit
               </button>
@@ -1558,6 +1944,29 @@
     </div>
 
     <script>
+      // Animation on scroll
+      function animateOnScroll() {
+        const elements = document.querySelectorAll(
+          ".animate-on-scroll, .animate-fade-in, .animate-slide-left, .animate-slide-right, .animate-scale-in, .animate-stagger"
+        );
+
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add("animated");
+          }
+        });
+      }
+
+      // Initialize animations
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+
+      // Initial trigger
+      animateOnScroll();
+
       // Open modal and set course name
       function openModal(course) {
         document.getElementById("courseName").value = course;
@@ -1641,94 +2050,32 @@
     </script>
 
     <script>
-      // Simple JavaScript for mobile menu toggle (can be expanded)
-      // document.addEventListener('DOMContentLoaded', function () {
-      //     const mobileMenuButton = document.querySelector('.md\\:hidden');
-      //     const navMenu = document.querySelector('nav');
-
-      //     mobileMenuButton.addEventListener('click', function () {
-      //         navMenu.classList.toggle('hidden');
-      //         navMenu.classList.toggle('flex');
-      //         navMenu.classList.toggle('flex-col');
-      //         navMenu.classList.toggle('absolute');
-      //         navMenu.classList.toggle('top-16');
-      //         navMenu.classList.toggle('right-4');
-      //         navMenu.classList.toggle('bg-white');
-      //         navMenu.classList.toggle('p-4');
-      //         navMenu.classList.toggle('rounded-lg');
-      //         navMenu.classList.toggle('shadow-md');
-      //         navMenu.classList.toggle('space-y-4');
-      //         navMenu.classList.toggle('space-x-8');
-      //     });
-
-      //     // Smooth scrolling for anchor links
-      //     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      //         anchor.addEventListener('click', function (e) {
-      //             e.preventDefault();
-
-      //             document.querySelector(this.getAttribute('href')).scrollIntoView({
-      //                 behavior: 'smooth'
-      //             });
-      //         });
-      //     });
-      // });
       // Toggle mobile menu visibility
       document.addEventListener("DOMContentLoaded", () => {
         const mobileMenuButton = document.getElementById("mobile-menu-button");
         const mobileMenu = document.getElementById("mobile-menu");
         const closeMobileMenu = document.getElementById("close-mobile-menu");
 
-        mobileMenuButton.addEventListener("click", () => {
-          mobileMenu.classList.remove("hidden");
-        });
+        if (mobileMenuButton) {
+          mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+          });
+        }
 
-        closeMobileMenu.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-        });
-
-        // Close menu when clicking outside
-        mobileMenu.addEventListener("click", (e) => {
-          if (e.target === mobileMenu) {
+        if (closeMobileMenu) {
+          closeMobileMenu.addEventListener("click", () => {
             mobileMenu.classList.add("hidden");
-          }
-        });
+          });
+        }
+
+        if (mobileMenu) {
+          mobileMenu.addEventListener("click", (e) => {
+            if (e.target === mobileMenu) {
+              mobileMenu.classList.add("hidden");
+            }
+          });
+        }
       });
-
-      // Open modal and set course name
-      function openModal(course) {
-        document.getElementById("courseName").value = course;
-        document.getElementById(
-          "modalTitle"
-        ).textContent = `Download Brochure for ${course}`;
-        document.getElementById("brochureModal").classList.remove("hidden");
-      }
-
-      // Close modal
-      function closeModal() {
-        document.getElementById("brochureModal").classList.add("hidden");
-      }
-
-      // Handle form submission
-      function handleFormSubmit(event) {
-        event.preventDefault();
-        const courseName = document.getElementById("courseName").value;
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-
-        // Simulate form submission and download brochure
-        alert(
-          `Thank you, ${name}! The brochure for ${courseName} will be downloaded.`
-        );
-        closeModal();
-
-        // Trigger brochure download
-        const link = document.createElement("a");
-        link.href = `./brochures/${courseName
-          .toLowerCase()
-          .replace(" ", "-")}-brochure.pdf`;
-        link.download = `${courseName}-Brochure.pdf`;
-        link.click();
-      }
     </script>
   </body>
 </html>
