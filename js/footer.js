@@ -4,10 +4,10 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
         <button 
             id="to-top-button" 
             onclick="scrollToTop()"
-            class="flex items-center justify-center mb-4 p-4 w-14 h-14 rounded-full shadow-lg bg-indigo-600 hover:bg-indigo-700 text-white transition-all duration-300 transform hover:scale-110 hidden"
+            class="flex items-center justify-center animate-bounce mb-4 p-4 w-14 h-14 rounded-full shadow-lg bg-indigo-600 hover:bg-indigo-700 text-white transition-all duration-300 transform hover:scale-110 hidden"
             title="Go to Top"
             >
-            <i class="fas fa-arrow-up text-xl animate-bounce"></i>
+            <i class="fas fa-arrow-up text-xl"></i>
         </button>
       <a
         href="https://wa.me/9550191219"
@@ -20,10 +20,8 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
             <div class="mx-auto px-4 sm:px-6 lg:px-8 pt-16">
                 <div class="md:flex items-center justify-between">
                     <div class="md:w-2/3 mb-8 md:mb-0">
-                        <h2 class="text-3xl font-bold mb-4 ">Ready to Start Your SAP Journey?</h2>
-                        <p class="text-xl ">Join thousands of successful professionals who transformed
-                            their
-                            careers with our SAP training programs.</p>
+                        <h2 class="text-3xl font-bold mb-4 ">Ready to build your SAP career?</h2>
+                        <p class="text-xl ">Book a free demo and get expert guidance today.</p>
                     </div>
                     <div class="md:w-1/3">
                         <a href="./contact.html"
@@ -109,10 +107,10 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
                             <div class="flex space-x-4">
                                 <a href="https://www.facebook.com/technopadsocial/" target="_blank"
                                     class=" hover:scale-105"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://www.linkedin.com/in/technopad-ameerpet-274a5280/" target="_blank"
+                                <a href="https://www.youtube.com/@technopad_sap" target="_blank"
                                     class=" hover:scale-105"><i class="fab fa-youtube"></i></a>
                                 <a href="https://www.linkedin.com/in/technopad-ameerpet-274a5280/" target="_blank" class=" hover:scale-105"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://www.instagram.com/technopadsocial/" target="_blank"
+                                <a href="https://www.instagram.com/technopad_sap/" target="_blank"
                                     class=" hover:scale-105"><i class="fab fa-instagram"></i></a>
                             </div>
                             <div>
@@ -146,8 +144,6 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
                                 <li><a href="./course.html#mm" class=" hover:scale-105">SAP MM</a></li>
                                 <li><a href="./course.html#sd" class=" hover:scale-105">SAP SD</a></li>
                                 <li><a href="./course.html#basis" class=" hover:scale-105">SAP BASIS</a></li>
-                                <li><a href="./course.html#pm" class=" hover:scale-105">SAP PM</a></li>
-                                <li><a href="./course.html#pp" class=" hover:scale-105">SAP PP</a></li>
                                 <li><a href="./course.html#hcm" class=" hover:scale-105">SAP HCM</a></li>
                                 <li><a href="./course.html#successfactors" class=" hover:scale-105">SAP SUCCESS FACTORS</a></li>
                             </ul>

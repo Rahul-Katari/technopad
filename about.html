@@ -30,20 +30,84 @@
     />
     <link href="css/style.css" rel="stylesheet" />
     <style>
-      .hero-about {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-          url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
-        background-size: cover;
-        background-position: center;
+      /* Animation Classes */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .animate-slide-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition: all 0.7s ease-out;
+      }
+
+      .animate-slide-left.animated {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .animate-slide-right {
+        opacity: 0;
+        transform: translateX(40px);
+        transition: all 0.7s ease-out;
+      }
+
+      .animate-slide-right.animated {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .animate-fade-in {
+        opacity: 0;
+        transition: all 0.8s ease-out;
+      }
+
+      .animate-fade-in.animated {
+        opacity: 1;
+      }
+
+      .animate-scale-in {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.6s ease-out;
+      }
+
+      .animate-scale-in.animated {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .stat-card {
+        transition: all 0.3s ease;
       }
 
       .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
       }
 
-      .leader-card:hover .leader-img {
-        transform: scale(1.05);
+      .feature-icon {
+        transition: all 0.4s ease;
+      }
+
+      .feature-card:hover .feature-icon {
+        transform: rotateY(180deg);
+        background: linear-gradient(
+          135deg,
+          #012150 0%,
+          #004a8f 100%
+        ) !important;
+      }
+
+      .feature-card:hover .feature-icon i {
+        color: white !important;
       }
 
       .timeline-item:not(:last-child):after {
@@ -54,6 +118,95 @@
         height: 100%;
         width: 2px;
         background: #3b82f6;
+      }
+
+      .module-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .module-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px -15px rgba(0, 74, 143, 0.3);
+      }
+
+      .section-light {
+        background-color: #ffffff;
+      }
+
+      .section-dark {
+        background-color: #f8fafc;
+      }
+
+      .section-gradient-dark {
+        background: linear-gradient(135deg, #012150 0%, #004a8f 100%);
+      }
+
+      .hero-about {
+        background: linear-gradient(rgba(1, 33, 80, 0.9), rgba(0, 74, 143, 0.9)),
+          url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      /* Image gallery animation */
+      .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .gallery-item {
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Problem Solution Animation */
+      .problem-solution-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .problem-solution-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+        transition: left 0.6s ease;
+      }
+
+      .problem-solution-card:hover::before {
+        left: 100%;
+      }
+
+      /* Course module animation */
+      .module-badge {
+        transition: all 0.3s ease;
+      }
+
+      .module-card:hover .module-badge {
+        transform: scale(1.1);
       }
     </style>
     <script src="./js/header.js" defer></script>
@@ -72,69 +225,117 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="header"></div>
-    <!-- Hero Section -->
-    <section
-      class="hero-about text-white py-20 md:py-32"
-      style="background: linear-gradient(135deg, #012150 0%, #004a8f 100%)"
-    >
+
+    <!-- SECTION 1: HERO / INTRO -->
+    <section class="hero-about text-white py-20 md:py-32 section-gradient-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
+        <div class="text-center animate-on-scroll">
           <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
             About Technopad
           </h1>
-          <p class="text-xl md:text-2xl max-w-3xl mx-auto">
-            Empowering professionals with industry-relevant SAP training
+          <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
+            A Dedicated SAP Training Institute Focused on Skills, Careers, and
+            Real Outcomes
           </p>
+          <div
+            class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 md:p-8 inline-block max-w-3xl mx-auto animate-fade-in"
+          >
+            <p class="text-lg md:text-xl italic">
+              "We don't just teach SAP — we prepare you for real SAP jobs with
+              practical training and placement support."
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Introduction Section -->
-    <section class="py-16 bg-white">
+    <!-- SECTION 2: WHO WE ARE -->
+    <section class="py-16 md:py-24 section-light">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <div class="animate-slide-left">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Welcome to Technopad
+              Who We Are
             </h2>
-            <p class="text-lg text-gray-600 mb-6">
-              A leading SAP Training Institute dedicated to empowering
-              professionals and students with the skills needed to excel in
-              today's competitive digital world.
-            </p>
-            <p class="text-lg text-gray-600 mb-6">
-              With a strong focus on industry-relevant training, hands-on
-              experience, and career advancement, we bridge the gap between
-              academic learning and practical implementation. Our mission is to
-              create SAP professionals who are confident, job-ready, and
-              globally recognized.
-            </p>
-            <p class="text-lg text-gray-600">
-              At Technopad, we offer comprehensive SAP training programs across
-              functional and technical modules including SAP FICO, MM, SD, HCM,
-              ABAP, and more. Each course is carefully designed and delivered by
-              certified SAP experts with years of real-time industry experience.
-            </p>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center"
+                  >
+                    <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  </div>
+                </div>
+                <p class="text-lg text-gray-600 ml-4">
+                  Technopad is a specialized SAP training institute committed to
+                  building skilled SAP professionals through practical,
+                  real-time learning.
+                </p>
+              </div>
+
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center"
+                  >
+                    <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  </div>
+                </div>
+                <p class="text-lg text-gray-600 ml-4">
+                  We focus exclusively on SAP modules and industry-aligned
+                  training that helps students and working professionals
+                  confidently transition into SAP careers.
+                </p>
+              </div>
+
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <div
+                    class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center"
+                  >
+                    <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                  </div>
+                </div>
+                <p class="text-lg text-gray-600 ml-4">
+                  Our training approach bridges the gap between theoretical
+                  learning and real corporate SAP implementation.
+                </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <img
-              src="./img/about/2.jpg"
-              alt="Technopad Institute"
-              class="rounded-lg shadow-lg"
-            />
+          <div class="animate-slide-right">
+            <div
+              class="bg-gradient-to-br from-blue-50 to-gray-50 p-8 rounded-2xl shadow-xl"
+            >
+              <div class="aspect-w-16 aspect-h-12 rounded-xl overflow-hidden">
+                <img
+                  src="./img/about/2.jpg"
+                  alt="Technopad Institute"
+                  class="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div class="mt-6 text-center">
+                <p class="text-gray-600 italic">
+                  Where theory meets practice, and learning transforms into
+                  career success
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Vision Mission Values -->
-    <section class="py-16 bg-gray-50">
+    <!-- SECTION 3: MISSION & VISION -->
+    <section class="py-16 md:py-24 section-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Vision -->
-          <div class="bg-white p-8 rounded-lg shadow-md">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg feature-card animate-scale-in"
+          >
             <div
-              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6"
+              class="feature-icon w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6"
             >
               <i class="fas fa-eye text-blue-600 text-2xl"></i>
             </div>
@@ -148,9 +349,12 @@
           </div>
 
           <!-- Mission -->
-          <div class="bg-white p-8 rounded-lg shadow-md">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg feature-card animate-scale-in"
+            style="transition-delay: 0.1s"
+          >
             <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6"
+              class="feature-icon w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6"
             >
               <i class="fas fa-bullseye text-green-600 text-2xl"></i>
             </div>
@@ -164,9 +368,12 @@
           </div>
 
           <!-- Values -->
-          <div class="bg-white p-8 rounded-lg shadow-md">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg feature-card animate-scale-in"
+            style="transition-delay: 0.2s"
+          >
             <div
-              class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6"
+              class="feature-icon w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6"
             >
               <i class="fas fa-heart text-purple-600 text-2xl"></i>
             </div>
@@ -183,193 +390,293 @@
       </div>
     </section>
 
-    <!-- Trainers Section -->
-    <section class="py-16 bg-white hidden">
+    <!-- SECTION 4: WHY TECHNOPAD EXISTS (PROBLEM → SOLUTION) -->
+    <section class="py-16 md:py-24 section-light">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">
-            Meet Our Trainers
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Why Technopad Exists
           </h2>
-          <p class="text-xl text-gray-600">
-            Learn from certified SAP experts with decades of industry experience
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Addressing industry challenges with practical solutions
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Trainer 1 -->
-          <div class="bg-gray-50 p-6 rounded-lg text-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- Problems -->
+          <div class="animate-slide-left">
             <div
-              class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 overflow-hidden"
+              class="bg-gradient-to-br from-red-50 to-white p-8 rounded-2xl shadow-lg problem-solution-card"
             >
-              <img
-                src="./img/trainers/niranjan.jpg"
-                alt="Niranjan Emaparala"
-                class="w-full h-full object-cover"
-              />
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i
+                    class="fas fa-exclamation-triangle text-red-600 text-xl"
+                  ></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800">
+                  Challenges Faced by Learners
+                </h3>
+              </div>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 mt-1">
+                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700"
+                    >Difficulty in getting SAP jobs despite course
+                    completion</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 mt-1">
+                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700"
+                    >Lack of real-time project exposure</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 mt-1">
+                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700"
+                    >Training not aligned with industry needs</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 mt-1">
+                    <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700"
+                    >Gap between theoretical knowledge and practical
+                    implementation</span
+                  >
+                </li>
+              </ul>
             </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              Niranjan Emaparala
-            </h3>
-            <p class="text-blue-600 font-medium mb-3">
-              SAP FICO (ECC & S4 HANA)
-            </p>
-            <p class="text-gray-600">
-              14+ years of experience as an SAP FICO Consultant
-            </p>
           </div>
 
-          <!-- Trainer 2 -->
-          <div class="bg-gray-50 p-6 rounded-lg text-center">
+          <!-- Solutions -->
+          <div class="animate-slide-right">
             <div
-              class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 overflow-hidden"
+              class="bg-gradient-to-br from-green-50 to-white p-8 rounded-2xl shadow-lg problem-solution-card"
             >
-              <img
-                src="./img/trainers/srinivas.jpg"
-                alt="Srinivas Dhesham"
-                class="w-full h-full object-cover"
-              />
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-800">Our Solution</h3>
+              </div>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 mt-1">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700"
+                    >Real-time SAP project-based learning</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 mt-1">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700"
+                    >Industry-experienced trainers</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 mt-1">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700">Live SAP system access</span>
+                </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 mt-1">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700"
+                    >Career and placement guidance until job placement</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <div class="flex-shrink-0 mt-1">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                  </div>
+                  <span class="ml-3 text-gray-700"
+                    >Mock interviews and resume preparation</span
+                  >
+                </li>
+              </ul>
             </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              Srinivas Dhesham
-            </h3>
-            <p class="text-blue-600 font-medium mb-3">
-              SAP FICO (ECC & S4 HANA)
-            </p>
-            <p class="text-gray-600">
-              20+ years of experience as an SAP FICO Consultant
-            </p>
           </div>
-
-          <!-- Trainer 3 -->
-          <div class="bg-gray-50 p-6 rounded-lg text-center">
-            <div
-              class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 overflow-hidden"
-            >
-              <img
-                src="./img/trainers/shiva.jpg"
-                alt="Shiva Subramanyam"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              Shiva Subramanyam
-            </h3>
-            <p class="text-blue-600 font-medium mb-3">
-              SAP ABAP (ECC & S4 HANA)
-            </p>
-            <p class="text-gray-600">
-              20+ years of experience as an SAP ABAP Consultant
-            </p>
-          </div>
-
-          <!-- Trainer 4 -->
-          <div class="bg-gray-50 p-6 rounded-lg text-center">
-            <div
-              class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 overflow-hidden"
-            >
-              <img
-                src="./img/trainers/shekar.jpg"
-                alt="Shekar"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Shekar</h3>
-            <p class="text-blue-600 font-medium mb-3">SAP MM (ECC & S4 HANA)</p>
-            <p class="text-gray-600">
-              18 years of experience as an SAP MM Consultant
-            </p>
-          </div>
-
-          <!-- Trainer 5 -->
-          <div class="bg-gray-50 p-6 rounded-lg text-center">
-            <div
-              class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 overflow-hidden"
-            >
-              <img
-                src="./img/trainers/vamsi.jpg"
-                alt="Vamsi"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Vamsi</h3>
-            <p class="text-blue-600 font-medium mb-3">SAP SD (ECC & S4 HANA)</p>
-            <p class="text-gray-600">
-              16 years of experience as an SAP SD Consultant
-            </p>
-          </div>
-
-          <!-- Trainer 6 -->
-          <div class="bg-gray-50 p-6 rounded-lg text-center">
-            <div
-              class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 overflow-hidden"
-            >
-              <img
-                src="./img/trainers/rekha.jpg"
-                alt="Rekha"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">Rekha</h3>
-            <p class="text-blue-600 font-medium mb-3">SAP SD (ECC & S4 HANA)</p>
-            <p class="text-gray-600">
-              12 years of experience as an SAP SD Consultant
-            </p>
-          </div>
-        </div>
-
-        <div class="text-center mt-12">
-          <a
-            href="#"
-            class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 font-medium"
-          >
-            <i class="fas fa-download mr-2"></i> Download Brochure
-          </a>
         </div>
       </div>
     </section>
 
-    <!-- Training Infrastructure -->
-    <section class="py-16 bg-gray-50">
+    <!-- SECTION 5: OUR SAP TRAINING PROGRAMS -->
+    <section class="py-16 md:py-24 section-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">
-            Training Infrastructure
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our SAP Training Programs
           </h2>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            At Technopad, we believe a world-class learning experience begins
-            with a world-class environment.
+            Comprehensive SAP training across all major modules
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
-          <div>
-            <p class="text-lg text-gray-600 mb-6">
-              Our state-of-the-art training infrastructure offers the ideal
-              blend of advanced technology, comfort, and collaborative spaces.
-              With modern classrooms, high-performance systems, and hands-on
-              practice labs, students receive the support they need to learn
-              effectively.
-            </p>
-            <p class="text-lg text-gray-600">
-              We ensure every learner builds strong practical skills, real-time
-              exposure, and the confidence required to excel in real-world SAP
-              environments and grow in today's competitive industry.
-            </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- SAP FICO -->
+          <div
+            class="module-card bg-white p-6 rounded-xl shadow-lg text-center animate-scale-in"
+          >
+            <div
+              class="module-badge w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <span class="text-blue-600 font-bold text-xl">FI</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2">SAP FICO</h3>
+            <p class="text-gray-600 text-sm">Finance & Controlling</p>
           </div>
-          <div>
-            <img
-              src="./img/about/1.JPG"
-              alt="Technopad Infrastructure"
-              class="rounded-lg shadow-lg"
-            />
+
+          <!-- SAP ABAP -->
+          <div
+            class="module-card bg-white p-6 rounded-xl shadow-lg text-center animate-scale-in"
+            style="transition-delay: 0.05s"
+          >
+            <div
+              class="module-badge w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <span class="text-purple-600 font-bold text-xl">AB</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2">SAP ABAP</h3>
+            <p class="text-gray-600 text-sm">Technical Programming</p>
+          </div>
+
+          <!-- SAP MM -->
+          <div
+            class="module-card bg-white p-6 rounded-xl shadow-lg text-center animate-scale-in"
+            style="transition-delay: 0.1s"
+          >
+            <div
+              class="module-badge w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <span class="text-green-600 font-bold text-xl">MM</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2">SAP MM</h3>
+            <p class="text-gray-600 text-sm">Materials Management</p>
+          </div>
+
+          <!-- SAP SD -->
+          <div
+            class="module-card bg-white p-6 rounded-xl shadow-lg text-center animate-scale-in"
+            style="transition-delay: 0.15s"
+          >
+            <div
+              class="module-badge w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <span class="text-red-600 font-bold text-xl">SD</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2">SAP SD</h3>
+            <p class="text-gray-600 text-sm">Sales & Distribution</p>
+          </div>
+
+          <!-- SAP BASIS -->
+          <div
+            class="module-card bg-white p-6 rounded-xl shadow-lg text-center animate-scale-in"
+            style="transition-delay: 0.2s"
+          >
+            <div
+              class="module-badge w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <span class="text-indigo-600 font-bold text-xl">BA</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2">SAP BASIS</h3>
+            <p class="text-gray-600 text-sm">System Administration</p>
+          </div>
+
+          <!-- SAP HCM -->
+          <div
+            class="module-card bg-white p-6 rounded-xl shadow-lg text-center animate-scale-in"
+            style="transition-delay: 0.25s"
+          >
+            <div
+              class="module-badge w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <span class="text-yellow-600 font-bold text-xl">HR</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2">SAP HCM</h3>
+            <p class="text-gray-600 text-sm">Human Capital Management</p>
+          </div>
+
+          <!-- SAP SuccessFactors -->
+          <div
+            class="module-card bg-white p-6 rounded-xl shadow-lg text-center animate-scale-in"
+            style="transition-delay: 0.3s"
+          >
+            <div
+              class="module-badge w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <span class="text-teal-600 font-bold text-xl">SF</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2">
+              SAP SuccessFactors
+            </h3>
+            <p class="text-gray-600 text-sm">Cloud HR</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Training Infrastructure -->
+    <section class="py-16 md:py-24 section-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Training Infrastructure
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            State-of-the-art facilities for hands-on SAP learning
+          </p>
+        </div>
+
+        <!-- Image Gallery -->
+        <div class="image-gallery mb-12">
+          <div class="gallery-item animate-fade-in">
+            <img src="./img/about/1.JPG" alt="Technopad Lab 1" />
+          </div>
+          <div
+            class="gallery-item animate-fade-in"
+            style="transition-delay: 0.1s"
+          >
+            <img src="./img/about/2.jpg" alt="Technopad Classroom" />
+          </div>
+          <div
+            class="gallery-item animate-fade-in"
+            style="transition-delay: 0.2s"
+          >
+            <img src="./img/about/3.JPG" alt="Technopad Lab 2" />
+          </div>
+          <div
+            class="gallery-item animate-fade-in"
+            style="transition-delay: 0.3s"
+          >
+            <img src="./img/about/4.jpg" alt="Technopad Training Session" />
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- Feature 1 -->
-          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg text-center feature-card animate-scale-in"
+          >
             <div
-              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="feature-icon w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto"
             >
               <i class="fas fa-chalkboard-teacher text-blue-600"></i>
             </div>
@@ -377,15 +684,17 @@
               Modern Classrooms
             </h3>
             <p class="text-gray-600 text-sm">
-              Smart, air-conditioned classrooms equipped with digital projectors
-              and interactive learning tools
+              Smart, air-conditioned classrooms with digital projectors
             </p>
           </div>
 
           <!-- Feature 2 -->
-          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg text-center feature-card animate-scale-in"
+            style="transition-delay: 0.1s"
+          >
             <div
-              class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="feature-icon w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto"
             >
               <i class="fas fa-server text-green-600"></i>
             </div>
@@ -393,31 +702,35 @@
               Dedicated SAP Labs
             </h3>
             <p class="text-gray-600 text-sm">
-              Fully functional SAP server environments offering real-time
-              practice and simulation
+              Fully functional SAP server environments
             </p>
           </div>
 
           <!-- Feature 3 -->
-          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg text-center feature-card animate-scale-in"
+            style="transition-delay: 0.2s"
+          >
             <div
-              class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="feature-icon w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4 mx-auto"
             >
               <i class="fas fa-wifi text-purple-600"></i>
             </div>
             <h3 class="text-lg font-bold text-gray-800 mb-2">
-              High-Speed Connectivity
+              High-Speed Internet
             </h3>
             <p class="text-gray-600 text-sm">
-              Reliable, high-bandwidth internet ensures uninterrupted access to
-              cloud-based SAP applications
+              Reliable, high-bandwidth connectivity
             </p>
           </div>
 
           <!-- Feature 4 -->
-          <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg text-center feature-card animate-scale-in"
+            style="transition-delay: 0.3s"
+          >
             <div
-              class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="feature-icon w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto"
             >
               <i class="fas fa-laptop-code text-orange-600"></i>
             </div>
@@ -425,112 +738,344 @@
               Practical Learning
             </h3>
             <p class="text-gray-600 text-sm">
-              Each trainee is provided with individual system access for
-              hands-on experience
+              Individual system access for hands-on experience
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Milestones Section -->
-    <section class="py-16 bg-white">
+    <!-- SECTION 7: OUR TRAINERS -->
+    <section class="py-16 md:py-24 section-dark">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Milestones</h2>
-          <p class="text-xl text-gray-600">
-            Celebrating our journey of excellence in SAP education
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Our Expert Trainers
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Learn from SAP professionals with real-time industry experience
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <!-- Milestone 1 -->
-          <div class="text-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Trainer Info -->
+          <div class="bg-white p-8 rounded-2xl shadow-lg animate-scale-in">
             <div
-              class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-6 mx-auto"
             >
-              <i class="fas fa-flag text-blue-600 text-2xl"></i>
+              <i class="fas fa-user-tie text-blue-600 text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              Established in 2011
+            <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">
+              Industry Experts
             </h3>
-            <p class="text-gray-600">
-              Launched with a vision to bridge the skill gap in enterprise
-              technology
+            <p class="text-gray-600 text-center">
+              Our trainers bring practical knowledge, implementation expertise,
+              and interview insights gained from working on live SAP projects.
             </p>
           </div>
 
-          <!-- Milestone 2 -->
-          <div class="text-center">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg animate-scale-in"
+            style="transition-delay: 0.1s"
+          >
             <div
-              class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto"
             >
-              <i class="fas fa-users text-green-600 text-2xl"></i>
+              <i class="fas fa-project-diagram text-green-600 text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              25000+ Students Trained
+            <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">
+              Real Project Experience
             </h3>
-            <p class="text-gray-600">
-              Successfully trained professionals across SAP modules
+            <p class="text-gray-600 text-center">
+              Each trainer has 12+ years of hands-on SAP implementation
+              experience across various industries and global projects.
             </p>
           </div>
 
-          <!-- Milestone 3 -->
-          <div class="text-center">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-lg animate-scale-in"
+            style="transition-delay: 0.2s"
+          >
             <div
-              class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-4 mx-auto"
+              class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-6 mx-auto"
             >
-              <i class="fas fa-briefcase text-purple-600 text-2xl"></i>
+              <i class="fas fa-graduation-cap text-purple-600 text-2xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              95% Placement Success
+            <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">
+              Mentorship Approach
             </h3>
-            <p class="text-gray-600">
-              Consistent placement support with top MNCs and consulting firms
+            <p class="text-gray-600 text-center">
+              Beyond teaching, our trainers mentor students through real-world
+              challenges, interview preparation, and career guidance.
             </p>
           </div>
+        </div>
 
-          <!-- Milestone 4 -->
-          <div class="text-center">
-            <div
-              class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mb-4 mx-auto"
-            >
-              <i class="fas fa-award text-orange-600 text-2xl"></i>
-            </div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2">
-              Global Certification
-            </h3>
-            <p class="text-gray-600">
-              Enabled hundreds to achieve global SAP certifications
+        <div class="text-center mt-12 animate-fade-in">
+          <div class="inline-block bg-blue-50 px-6 py-3 rounded-full">
+            <p class="text-gray-700">
+              <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+              Trainer profiles with detailed experience and specialization
+              coming soon
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 bg-blue-600 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
-          Ready to Start Your SAP Career?
-        </h2>
-        <p class="text-xl mb-8 max-w-3xl mx-auto">
-          Join thousands of successful professionals who transformed their
-          careers with Technopad
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#"
-            class="bg-white text-blue-600 px-8 py-3 rounded-md font-bold hover:bg-gray-100 transition duration-300"
-          >
-            Explore Courses
-          </a>
-          <a
-            href="#"
-            class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-md font-bold hover:bg-white hover:text-blue-600 transition duration-300"
-          >
-            Contact Us
-          </a>
+    <!-- SECTION 8 & 9: CAREER SUPPORT & WHO CAN JOIN -->
+    <section class="py-16 md:py-24 section-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <!-- SECTION 9: WHO CAN JOIN -->
+          <div class="animate-slide-left">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">
+              Who Can Join Technopad
+            </h2>
+            <div class="space-y-6">
+              <div class="flex items-start group">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-blue-200 transition-colors"
+                >
+                  <i class="fas fa-user-graduate text-blue-600"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-1">
+                    Fresh Graduates
+                  </h3>
+                  <p class="text-gray-600">
+                    Start your career with industry-recognized SAP skills
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start group">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-green-200 transition-colors"
+                >
+                  <i class="fas fa-briefcase text-green-600"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-1">
+                    Working Professionals
+                  </h3>
+                  <p class="text-gray-600">
+                    Upskill and advance in your current career path
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start group">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-purple-200 transition-colors"
+                >
+                  <i class="fas fa-exchange-alt text-purple-600"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-1">
+                    Career Switchers
+                  </h3>
+                  <p class="text-gray-600">
+                    Transition to SAP from other domains
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start group">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-yellow-200 transition-colors"
+                >
+                  <i class="fas fa-users text-yellow-600"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-1">
+                    Commerce, IT, HR & Management
+                  </h3>
+                  <p class="text-gray-600">
+                    All educational backgrounds welcome
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start group">
+                <div
+                  class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4 group-hover:bg-red-200 transition-colors"
+                >
+                  <i class="fas fa-redo text-red-600"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-1">
+                    Career Break Returns
+                  </h3>
+                  <p class="text-gray-600">
+                    Restart your professional journey with updated skills
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 8: CAREER & PLACEMENT SUPPORT -->
+          <div class="animate-slide-right">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">
+              Career & Placement Support
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div
+                class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-file-alt text-blue-600"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">
+                  Resume Preparation
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Tailored for SAP consultant roles
+                </p>
+              </div>
+
+              <div
+                class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div
+                  class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-comments text-green-600"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">
+                  Mock Interviews
+                </h3>
+                <p class="text-gray-600 text-sm">Realistic practice sessions</p>
+              </div>
+
+              <div
+                class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div
+                  class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-road text-purple-600"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">
+                  Career Roadmap
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Personalized planning & counseling
+                </p>
+              </div>
+
+              <div
+                class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div
+                  class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-handshake text-yellow-600"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">
+                  Job Referrals
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Interview assistance & referrals
+                </p>
+              </div>
+
+              <div
+                class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow md:col-span-2"
+              >
+                <div
+                  class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mb-4"
+                >
+                  <i class="fas fa-headset text-red-600"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800 mb-2">
+                  Continuous Support
+                </h3>
+                <p class="text-gray-600 text-sm">
+                  Guidance until successful placement
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: FINAL CALL TO ACTION -->
+    <section class="py-16 md:py-24 section-gradient-dark text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-slide-left">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Build Your SAP Career with Technopad?
+            </h2>
+            <p class="text-xl mb-8">
+              Join Technopad and learn SAP from real professionals with complete
+              placement support.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                href="./contact.html"
+                class="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition duration-300 text-center group"
+              >
+                <i class="fas fa-calendar-alt mr-2"></i>
+                Book Free Demo
+                <i
+                  class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"
+                ></i>
+              </a>
+              <a
+                href="./contact.html"
+                class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-blue-600 transition duration-300 text-center group"
+              >
+                <i class="fas fa-phone-alt mr-2"></i>
+                Contact Us
+                <i
+                  class="fas fa-external-link-alt ml-2 group-hover:rotate-45 transition-transform"
+                ></i>
+              </a>
+            </div>
+          </div>
+          <div class="animate-slide-right">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-award text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">95% Placement Success</h3>
+                  <p class="text-white/80">Proven track record</p>
+                </div>
+              </div>
+              <div class="flex items-center mb-6">
+                <div
+                  class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-users text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">25000+ Students Trained</h3>
+                  <p class="text-white/80">Since 2011</p>
+                </div>
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-chalkboard-teacher text-white text-xl"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">Expert Trainers</h3>
+                  <p class="text-white/80">12+ years industry experience</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -540,11 +1085,33 @@
     <script type="module" src="./js/purecounter.js"></script>
     <script src="js/main.js"></script>
     <script>
+      // Animation on scroll
+      function animateOnScroll() {
+        const elements = document.querySelectorAll(
+          ".animate-on-scroll, .animate-slide-left, .animate-slide-right, .animate-fade-in, .animate-scale-in"
+        );
+
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add("animated");
+          }
+        });
+      }
+
+      // Initialize animations
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+
+      // Initial trigger
+      animateOnScroll();
+
       // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
-
           document.querySelector(this.getAttribute("href")).scrollIntoView({
             behavior: "smooth",
           });
@@ -557,20 +1124,25 @@
         const mobileMenu = document.getElementById("mobile-menu");
         const closeMobileMenu = document.getElementById("close-mobile-menu");
 
-        mobileMenuButton.addEventListener("click", () => {
-          mobileMenu.classList.remove("hidden");
-        });
+        if (mobileMenuButton) {
+          mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+          });
+        }
 
-        closeMobileMenu.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-        });
-
-        // Close menu when clicking outside
-        mobileMenu.addEventListener("click", (e) => {
-          if (e.target === mobileMenu) {
+        if (closeMobileMenu) {
+          closeMobileMenu.addEventListener("click", () => {
             mobileMenu.classList.add("hidden");
-          }
-        });
+          });
+        }
+
+        if (mobileMenu) {
+          mobileMenu.addEventListener("click", (e) => {
+            if (e.target === mobileMenu) {
+              mobileMenu.classList.add("hidden");
+            }
+          });
+        }
       });
     </script>
   </body>
