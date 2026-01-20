@@ -13,13 +13,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.0.0
+      - name: Deploy to Hostinger via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
-          server: ${{ secrets.FTP_HOST }}        # 91.108.107.78
-          username: ${{ secrets.FTP_USERNAME }}  # u228385460.technopad.in
+          server: 91.108.107.78
+          username: u228385460.technopad.in
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          protocol: ftp
+          protocol: ftps
+          secure: true
           server-dir: /public_html/
           local-dir: ./
