@@ -16,12 +16,12 @@ jobs:
       - name: Deploy to Hostinger via FTPS
         uses: SamKirkland/FTP-Deploy-Action@v4.0.0
         with:
-          server: ftp.hstgr.io
+          server: 91.108.107.78
           username: u228385460.technopad.in
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftps
           secure: true
-          dangerous-clean-slate: false
+          dangerous-disable-cert-verification: true
           server-dir: /public_html/
           local-dir: ./
