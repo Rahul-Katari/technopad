@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# SAP Course redirects
+Redirect 301 /sap-fico/ /course.html#fico
+Redirect 301 /sap-mm/ /course.html#mm
+Redirect 301 /sap-sd/ /course.html#sd
+Redirect 301 /sap-abap/ /course.html#abap
+Redirect 301 /sap-hcm/ /course.html#hcm
+
+# Corporate training
+Redirect 301 /corporate-training/ /course.html
+
+# Old nested course URL
+Redirect 301 /our-courses/fico-training/ /course.html#fico
+
+# About Us -> About section on homepage (adjust target if needed)
+Redirect 301 /about-us/ /about.html
