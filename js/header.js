@@ -67,19 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
   const closeMobileMenu = document.getElementById("close-mobile-menu");
-  const gtagScript = document.createElement("script");
-  gtagScript.async = true;
-  gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-17584869679";
-  document.head.appendChild(gtagScript);
-
-  gtagScript.onload = () => {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "AW-17584869679");
-  };
 
   mobileMenuButton.addEventListener("click", () => {
     mobileMenu.classList.remove("hidden");
