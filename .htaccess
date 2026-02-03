@@ -15,3 +15,6 @@ Redirect 301 /our-courses/fico-training/ /course.html#fico
 
 # About Us -> About section on homepage (adjust target if needed)
 Redirect 301 /about-us/ /about.html
+
+# final-year-sap-projects
+Redirect 301 /final-year-sap-projects/ /final-year-sap-projects.html

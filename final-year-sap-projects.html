@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Final year SAP Projects | Techno Pad - Premier SAP Training Institute
+    </title>
+    <link
+      href="/favicon.png"
+      rel="icon"
+      alt="Techno Pad training and placement"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      /* Animation Classes */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .animate-slide-left {
+        opacity: 0;
+        transform: translateX(-40px);
+        transition: all 0.7s ease-out;
+      }
+
+      .animate-slide-left.animated {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .animate-slide-right {
+        opacity: 0;
+        transform: translateX(40px);
+        transition: all 0.7s ease-out;
+      }
+
+      .animate-slide-right.animated {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .animate-fade-in {
+        opacity: 0;
+        transition: all 0.8s ease-out;
+      }
+
+      .animate-fade-in.animated {
+        opacity: 1;
+      }
+
+      .animate-scale-in {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.6s ease-out;
+      }
+
+      .animate-scale-in.animated {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .stat-card {
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        transition: all 0.4s ease;
+      }
+
+      .feature-card:hover .feature-icon {
+        transform: rotateY(180deg);
+        background: linear-gradient(
+          135deg,
+          #012150 0%,
+          #004a8f 100%
+        ) !important;
+      }
+
+      .feature-card:hover .feature-icon i {
+        color: white !important;
+      }
+
+      .timeline-item:not(:last-child):after {
+        content: "";
+        position: absolute;
+        left: 24px;
+        top: 32px;
+        height: 100%;
+        width: 2px;
+        background: #3b82f6;
+      }
+
+      .module-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .module-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px -15px rgba(0, 74, 143, 0.3);
+      }
+
+      .section-light {
+        background-color: #ffffff;
+      }
+
+      .section-dark {
+        background-color: #f8fafc;
+      }
+
+      .section-gradient-dark {
+        background: linear-gradient(135deg, #012150 0%, #004a8f 100%);
+      }
+
+      .hero-about {
+        background:
+          linear-gradient(rgba(1, 33, 80, 0.9), rgba(0, 74, 143, 0.9)),
+          url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      /* Image gallery animation */
+      .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .gallery-item {
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Problem Solution Animation */
+      .problem-solution-card {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .problem-solution-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+        transition: left 0.6s ease;
+      }
+
+      .problem-solution-card:hover::before {
+        left: 100%;
+      }
+
+      /* Course module animation */
+      .module-badge {
+        transition: all 0.3s ease;
+      }
+
+      .module-card:hover .module-badge {
+        transform: scale(1.1);
+      }
+      .step-number {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+      }
+
+      .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .accordion-content.active {
+        max-height: 500px;
+      }
+    </style>
+    <script src="./js/header.js" defer></script>
+    <script src="./js/footer.js" defer></script>
+  </head>
+
+  <body class="font-sans antialiased text-gray-800">
+    <div id="header"></div>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="relative py-16 md:py-24 overflow-hidden">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-blue-100 via-white to-white"
+        ></div>
+        <div class="container mx-auto px-4 relative">
+          <div class="max-w-3xl mx-auto text-center">
+            <div
+              class="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full mb-6"
+            >
+              <i class="fas fa-graduation-cap w-4 h-4"></i>
+              <span>For Final-Year Students in Hyderabad</span>
+            </div>
+            <h1
+              class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight"
+            >
+              Get a <span class="text-blue-600">Real SAP Project</span> That
+              Impresses in Viva &amp; Interviews
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Stop worrying about copied projects and tough questions. Build a
+              genuine SAP project with hands-on training, viva preparation, and
+              internship certificate.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+              <a
+                href="https://wa.me/919581336333?text=Hi%2C%20I%20am%20a%20final%20year%20student%20and%20I%E2%80%99m%20interested%20in%20the%20SAP%20FICO%20Live%20Demo.%20Please%20share%20details."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors"
+              >
+                <i class="fab fa-whatsapp w-5 h-5"></i>
+                WhatsApp FINAL YEAR
+              </a>
+              <a
+                href="tel:9581336333"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+              >
+                Talk to Mentor
+              </a>
+            </div>
+            <div
+              class="flex flex-wrap justify-center gap-6 text-sm text-gray-600"
+            >
+              <div class="flex items-center gap-2">
+                <i class="fas fa-shield-alt w-5 h-5 text-blue-600"></i>
+                <span>100% Genuine Projects</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-award w-5 h-5 text-blue-600"></i>
+                <span>Internship Certificate</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-graduation-cap w-5 h-5 text-blue-600"></i>
+                <span>Viva-Ready Preparation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problems Section -->
+      <section class="py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">
+              Are You Facing These Problems?
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              Most final-year students struggle with these exact challenges.
+              You're not alone.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+            <!-- Problem 1 -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-sm border border-gray-200"
+            >
+              <div class="flex items-start gap-4">
+                <div class="p-2 rounded-lg bg-yellow-100">
+                  <i
+                    class="fas fa-exclamation-triangle w-5 h-5 text-yellow-600"
+                  ></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">
+                    Scared of Viva Questions
+                  </h3>
+                  <p class="text-sm text-gray-600">
+                    External examiners ask deep questions. Without real
+                    understanding, you freeze and lose marks.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Problem 2 -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-sm border border-gray-200"
+            >
+              <div class="flex items-start gap-4">
+                <div class="p-2 rounded-lg bg-yellow-100">
+                  <i class="fas fa-question-circle w-5 h-5 text-yellow-600"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">
+                    Interview Rejections
+                  </h3>
+                  <p class="text-sm text-gray-600">
+                    Recruiters easily spot fake or copied projects. One
+                    technical question exposes everything.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Problem 3 -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-sm border border-gray-200"
+            >
+              <div class="flex items-start gap-4">
+                <div class="p-2 rounded-lg bg-yellow-100">
+                  <i class="fas fa-times-circle w-5 h-5 text-yellow-600"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">
+                    No Real Skills
+                  </h3>
+                  <p class="text-sm text-gray-600">
+                    YouTube tutorials and copied code don't build actual
+                    industry skills employers want.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Problem 4 -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-sm border border-gray-200"
+            >
+              <div class="flex items-start gap-4">
+                <div class="p-2 rounded-lg bg-yellow-100">
+                  <i class="fas fa-clock w-5 h-5 text-yellow-600"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">
+                    Running Out of Time
+                  </h3>
+                  <p class="text-sm text-gray-600">
+                    Final semester is here. You need a project NOW that actually
+                    works and you understand.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reality Section -->
+      <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+              <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                The Reality of Fake &amp; Copied Projects
+              </h2>
+              <p class="text-gray-600">
+                Here's what happens when you submit a project you don't
+                understand
+              </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+              <!-- Reality 1 -->
+              <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <div
+                  class="w-12 h-12 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center"
+                >
+                  <i class="fas fa-ban w-6 h-6 text-red-600"></i>
+                </div>
+                <h3 class="font-semibold mb-2">Viva Failure</h3>
+                <p class="text-sm text-gray-600">
+                  Examiners ask "How does this module work?" and you have no
+                  answer. Marks gone.
+                </p>
+              </div>
+
+              <!-- Reality 2 -->
+              <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <div
+                  class="w-12 h-12 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center"
+                >
+                  <i class="fas fa-eye w-6 h-6 text-red-600"></i>
+                </div>
+                <h3 class="font-semibold mb-2">Recruiters See Through</h3>
+                <p class="text-sm text-gray-600">
+                  HR and technical panels immediately identify copied projects.
+                  Interview ends quickly.
+                </p>
+              </div>
+
+              <!-- Reality 3 -->
+              <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                <div
+                  class="w-12 h-12 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center"
+                >
+                  <i class="fas fa-file-exclamation w-6 h-6 text-red-600"></i>
+                </div>
+                <h3 class="font-semibold mb-2">Zero Learning</h3>
+                <p class="text-sm text-gray-600">
+                  You graduate with a degree but no real skills. Job market
+                  becomes a nightmare.
+                </p>
+              </div>
+            </div>
+            <div class="mt-10 p-6 bg-blue-50 rounded-xl text-center">
+              <p class="text-lg font-medium text-blue-800">
+                "Don't let 4 years of education be wasted by a fake project in
+                the final semester."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solutions Section -->
+      <section class="py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <span
+              class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full mb-4 inline-block"
+            >
+              The TechnoPad Way
+            </span>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">
+              Real SAP Projects. Real Skills. Real Confidence.
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              We don't just give you a project. We train you to own it
+              completely.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto mb-10">
+            <!-- Solution 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="p-2 rounded-lg bg-purple-100">
+                  <i class="fas fa-code w-5 h-5 text-purple-600"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">
+                    Real-Time SAP Project
+                  </h3>
+                  <p class="text-sm text-gray-600">
+                    Work on actual SAP modules (MM, SD, FICO, ABAP) used by
+                    companies worldwide. Not theoretical - real hands-on coding.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Solution 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="p-2 rounded-lg bg-purple-100">
+                  <i class="fas fa-users w-5 h-5 text-purple-600"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">
+                    1-on-1 Mentor Support
+                  </h3>
+                  <p class="text-sm text-gray-600">
+                    Industry expert guides you through every step. Ask
+                    questions, clear doubts, and build confidence.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Solution 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="p-2 rounded-lg bg-purple-100">
+                  <i class="fas fa-file-check w-5 h-5 text-purple-600"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">
+                    Viva Preparation
+                  </h3>
+                  <p class="text-sm text-gray-600">
+                    We prepare you for every possible question. Mock vivas
+                    ensure you never freeze in the exam.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Solution 4 -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                <div class="p-2 rounded-lg bg-purple-100">
+                  <i class="fas fa-briefcase w-5 h-5 text-purple-600"></i>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900 mb-1">
+                    Internship Certificate
+                  </h3>
+                  <p class="text-sm text-gray-600">
+                    Get a genuine internship certificate that adds real value to
+                    your resume and LinkedIn.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <a
+              href="https://wa.me/919581336333?text=Hi%2C%20I%20am%20a%20final%20year%20student%20and%20I%E2%80%99m%20interested%20in%20the%20SAP%20FICO%20Live%20Demo.%20Please%20share%20details."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors inline-flex"
+            >
+              <i class="fab fa-whatsapp w-5 h-5"></i>
+              WhatsApp FINAL YEAR
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">
+              Why Choose SAP for Your Final Year Project?
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              SAP isn't just a project topic - it's a career launchpad used by
+              77% of the world's business transactions.
+            </p>
+          </div>
+          <div
+            class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto"
+          >
+            <!-- Benefit 1 -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow"
+            >
+              <div
+                class="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center"
+              >
+                <i class="fas fa-building w-6 h-6 text-blue-600"></i>
+              </div>
+              <h3 class="font-semibold mb-2">Used by Top Companies</h3>
+              <p class="text-sm text-gray-600">
+                TCS, Infosys, Wipro, Deloitte, Accenture - all use SAP. Your
+                project shows industry relevance.
+              </p>
+            </div>
+
+            <!-- Benefit 2 -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow"
+            >
+              <div
+                class="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center"
+              >
+                <i class="fas fa-chart-line w-6 h-6 text-blue-600"></i>
+              </div>
+              <h3 class="font-semibold mb-2">High Demand Skill</h3>
+              <p class="text-sm text-gray-600">
+                SAP professionals are in constant demand. Your final year
+                project becomes your career foundation.
+              </p>
+            </div>
+
+            <!-- Benefit 3 -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow"
+            >
+              <div
+                class="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center"
+              >
+                <i class="fas fa-rupee-sign w-6 h-6 text-blue-600"></i>
+              </div>
+              <h3 class="font-semibold mb-2">Better Starting Salary</h3>
+              <p class="text-sm text-gray-600">
+                SAP freshers earn 4-6 LPA compared to 2-3 LPA for generic IT
+                roles. Skill pays.
+              </p>
+            </div>
+
+            <!-- Benefit 4 -->
+            <div
+              class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow"
+            >
+              <div
+                class="w-12 h-12 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center"
+              >
+                <i class="fas fa-globe w-6 h-6 text-blue-600"></i>
+              </div>
+              <h3 class="font-semibold mb-2">Global Opportunities</h3>
+              <p class="text-sm text-gray-600">
+                SAP is used in 190+ countries. Your skills open doors beyond
+                India.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Eligibility Section -->
+      <section class="py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-10">
+              <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                Is This Program Right for You?
+              </h2>
+              <p class="text-gray-600">
+                This program is designed specifically for students who want real
+                results, not shortcuts.
+              </p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="flex items-start gap-3">
+                  <i
+                    class="fas fa-check-circle w-5 h-5 text-green-600 flex-shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-gray-900"
+                    >B.Tech / B.E. final-year students (CSE, IT, ECE, EEE)</span
+                  >
+                </div>
+                <div class="flex items-start gap-3">
+                  <i
+                    class="fas fa-check-circle w-5 h-5 text-green-600 flex-shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-gray-900"
+                    >Degree students (B.Com, BBA, B.Sc) wanting tech
+                    skills</span
+                  >
+                </div>
+                <div class="flex items-start gap-3">
+                  <i
+                    class="fas fa-check-circle w-5 h-5 text-green-600 flex-shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-gray-900"
+                    >Students who don't want to submit copied projects</span
+                  >
+                </div>
+                <div class="flex items-start gap-3">
+                  <i
+                    class="fas fa-check-circle w-5 h-5 text-green-600 flex-shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-gray-900"
+                    >Those preparing for campus placements</span
+                  >
+                </div>
+                <div class="flex items-start gap-3">
+                  <i
+                    class="fas fa-check-circle w-5 h-5 text-green-600 flex-shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-gray-900"
+                    >Anyone who wants to confidently face viva and
+                    interviews</span
+                  >
+                </div>
+                <div class="flex items-start gap-3">
+                  <i
+                    class="fas fa-check-circle w-5 h-5 text-green-600 flex-shrink-0 mt-0.5"
+                  ></i>
+                  <span class="text-gray-900"
+                    >Students looking for internship + project combo</span
+                  >
+                </div>
+              </div>
+            </div>
+            <p class="text-center mt-8 text-gray-600">
+              If you see yourself in any of these, we're here to help you
+              succeed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process Section -->
+      <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">
+              Simple 4-Step Process
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              Getting started is easy. Here's how it works.
+            </p>
+          </div>
+          <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-6">
+              <!-- Step 1 -->
+              <div class="text-center relative">
+                <div
+                  class="hidden md:block absolute top-5 left-[60%] w-full h-0.5 bg-gray-300"
+                ></div>
+                <div class="relative z-10 mb-4 mx-auto">
+                  <div class="step-number mx-auto">1</div>
+                </div>
+                <div class="p-3 rounded-lg bg-blue-50 inline-block mb-3">
+                  <i class="fab fa-whatsapp w-5 h-5 text-blue-600"></i>
+                </div>
+                <h3 class="font-semibold mb-2">WhatsApp Us</h3>
+                <p class="text-sm text-gray-600">
+                  Send 'FINAL YEAR' to start. Our team responds within 1 hour.
+                </p>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="text-center relative">
+                <div
+                  class="hidden md:block absolute top-5 left-[60%] w-full h-0.5 bg-gray-300"
+                ></div>
+                <div class="relative z-10 mb-4 mx-auto">
+                  <div class="step-number mx-auto">2</div>
+                </div>
+                <div class="p-3 rounded-lg bg-blue-50 inline-block mb-3">
+                  <i class="fas fa-file-alt w-5 h-5 text-blue-600"></i>
+                </div>
+                <h3 class="font-semibold mb-2">Free Counseling</h3>
+                <p class="text-sm text-gray-600">
+                  Understand your background, college requirements, and
+                  timeline.
+                </p>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="text-center relative">
+                <div
+                  class="hidden md:block absolute top-5 left-[60%] w-full h-0.5 bg-gray-300"
+                ></div>
+                <div class="relative z-10 mb-4 mx-auto">
+                  <div class="step-number mx-auto">3</div>
+                </div>
+                <div class="p-3 rounded-lg bg-blue-50 inline-block mb-3">
+                  <i class="fas fa-book-open w-5 h-5 text-blue-600"></i>
+                </div>
+                <h3 class="font-semibold mb-2">Start Training</h3>
+                <p class="text-sm text-gray-600">
+                  Begin hands-on SAP training with your assigned mentor.
+                </p>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="text-center relative">
+                <div class="relative z-10 mb-4 mx-auto">
+                  <div class="step-number mx-auto">4</div>
+                </div>
+                <div class="p-3 rounded-lg bg-blue-50 inline-block mb-3">
+                  <i class="fas fa-award w-5 h-5 text-blue-600"></i>
+                </div>
+                <h3 class="font-semibold mb-2">Project + Certificate</h3>
+                <p class="text-sm text-gray-600">
+                  Complete your project, get viva-ready, and receive your
+                  certificate.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="py-16 md:py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p class="text-gray-600">Got questions? We've got answers.</p>
+          </div>
+          <div class="max-w-2xl mx-auto">
+            <div class="space-y-3">
+              <!-- FAQ 1 -->
+              <div class="bg-white rounded-lg border border-gray-200 px-4">
+                <h3 class="flex">
+                  <button
+                    type="button"
+                    class="flex flex-1 items-center justify-between text-left font-medium py-4 faq-toggle"
+                  >
+                    I have no SAP knowledge. Can I still join?
+                    <i
+                      class="fas fa-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    ></i>
+                  </button>
+                </h3>
+                <div class="accordion-content">
+                  <p class="pb-4 text-gray-600">
+                    Absolutely! Our program starts from the basics. We've
+                    trained hundreds of students with zero SAP experience. Our
+                    mentors guide you step-by-step through every concept.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ 2 -->
+              <div class="bg-white rounded-lg border border-gray-200 px-4">
+                <h3 class="flex">
+                  <button
+                    type="button"
+                    class="flex flex-1 items-center justify-between text-left font-medium py-4 faq-toggle"
+                  >
+                    How long does the program take?
+                    <i
+                      class="fas fa-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    ></i>
+                  </button>
+                </h3>
+                <div class="accordion-content">
+                  <p class="pb-4 text-gray-600">
+                    The complete program takes 4-6 weeks depending on your
+                    availability. We offer flexible schedules including weekends
+                    to accommodate your college timetable.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ 3 -->
+              <div class="bg-white rounded-lg border border-gray-200 px-4">
+                <h3 class="flex">
+                  <button
+                    type="button"
+                    class="flex flex-1 items-center justify-between text-left font-medium py-4 faq-toggle"
+                  >
+                    Will this project be accepted by my college?
+                    <i
+                      class="fas fa-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    ></i>
+                  </button>
+                </h3>
+                <div class="accordion-content">
+                  <p class="pb-4 text-gray-600">
+                    Yes! Our projects are designed to meet university
+                    requirements. We provide complete documentation, source
+                    code, and reports as per college guidelines.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ 4 -->
+              <div class="bg-white rounded-lg border border-gray-200 px-4">
+                <h3 class="flex">
+                  <button
+                    type="button"
+                    class="flex flex-1 items-center justify-between text-left font-medium py-4 faq-toggle"
+                  >
+                    What's included in the program fee?
+                    <i
+                      class="fas fa-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    ></i>
+                  </button>
+                </h3>
+                <div class="accordion-content">
+                  <p class="pb-4 text-gray-600">
+                    Everything you need: Hands-on training, project development,
+                    complete documentation, viva preparation, internship
+                    certificate, and post-program support for 3 months.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ 5 -->
+              <div class="bg-white rounded-lg border border-gray-200 px-4">
+                <h3 class="flex">
+                  <button
+                    type="button"
+                    class="flex flex-1 items-center justify-between text-left font-medium py-4 faq-toggle"
+                  >
+                    Is this online or offline?
+                    <i
+                      class="fas fa-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    ></i>
+                  </button>
+                </h3>
+                <div class="accordion-content">
+                  <p class="pb-4 text-gray-600">
+                    We offer both! Choose online sessions with live mentorship
+                    or join our Hyderabad center for in-person training. Both
+                    options include the same comprehensive program.
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ 6 -->
+              <div class="bg-white rounded-lg border border-gray-200 px-4">
+                <h3 class="flex">
+                  <button
+                    type="button"
+                    class="flex flex-1 items-center justify-between text-left font-medium py-4 faq-toggle"
+                  >
+                    What if I have doubts after the program ends?
+                    <i
+                      class="fas fa-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                    ></i>
+                  </button>
+                </h3>
+                <div class="accordion-content">
+                  <p class="pb-4 text-gray-600">
+                    We provide 3 months of post-program support. You can reach
+                    out to your mentor anytime for clarification, interview
+                    preparation, or career guidance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA Section -->
+      <section class="py-16 md:py-24">
+        <div class="container mx-auto px-4">
+          <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">
+              Your Final Year Project Decides Your First Job
+            </h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Don't leave it to chance. Get a real SAP project, ace your viva,
+              and start your career with confidence. Limited seats available.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+              <a
+                href="https://wa.me/919581336333?text=Hi%2C%20I%20am%20a%20final%20year%20student%20and%20I%E2%80%99m%20interested%20in%20the%20SAP%20FICO%20Live%20Demo.%20Please%20share%20details."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-medium text-lg flex items-center justify-center gap-2 transition-colors"
+              >
+                <i class="fab fa-whatsapp w-5 h-5"></i>
+                WhatsApp FINAL YEAR
+              </a>
+              <a
+                href="tel:9581336333"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-medium text-lg transition-colors"
+              >
+                Talk to Mentor
+              </a>
+            </div>
+            <div
+              class="flex flex-wrap justify-center gap-6 text-sm text-gray-600"
+            >
+              <div class="flex items-center gap-2">
+                <i class="fas fa-clock w-4 h-4 text-blue-600"></i>
+                <span>Response within 1 hour</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-users w-4 h-4 text-blue-600"></i>
+                <span>1000+ Students Trained</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fas fa-shield-check w-4 h-4 text-blue-600"></i>
+                <span>100% Project Completion</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="footer" class="bg-gray-900"></div>
+
+    <script type="module" src="./js/purecounter.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      // Animation on scroll
+      function animateOnScroll() {
+        const elements = document.querySelectorAll(
+          ".animate-on-scroll, .animate-slide-left, .animate-slide-right, .animate-fade-in, .animate-scale-in",
+        );
+
+        elements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add("animated");
+          }
+        });
+      }
+
+      // Initialize animations
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+
+      // Initial trigger
+      animateOnScroll();
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Toggle mobile menu visibility
+      document.addEventListener("DOMContentLoaded", () => {
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeMobileMenu = document.getElementById("close-mobile-menu");
+
+        if (mobileMenuButton) {
+          mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.remove("hidden");
+          });
+        }
+
+        if (closeMobileMenu) {
+          closeMobileMenu.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+          });
+        }
+
+        if (mobileMenu) {
+          mobileMenu.addEventListener("click", (e) => {
+            if (e.target === mobileMenu) {
+              mobileMenu.classList.add("hidden");
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
