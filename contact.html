@@ -546,6 +546,18 @@
             </div>
 
             <form id="contact-form">
+              <input
+                type="hidden"
+                name="source"
+                id="leadSource"
+                value="Contact Us Page"
+              />
+              <input
+                type="hidden"
+                name="page"
+                id="leadSource"
+                value="Contact Us Page"
+              />
               <div class="space-y-6">
                 <div class="group">
                   <label
@@ -777,51 +789,36 @@
       }
     </script>
 
-    <!-- Form submission (existing functionality preserved) -->
     <script type="text/javascript">
-      (function () {
-        emailjs.init({
-          publicKey: "KdB7a_GBrO45ZSNUz",
-        });
-      })();
-
       window.onload = function () {
         document
           .getElementById("contact-form")
           .addEventListener("submit", function (event) {
-            event.preventDefault();
-            const button = document.getElementById("contact-form-button");
-            const originalText = button.innerHTML;
+            event.preventDefault(); // stops page reload
+            const submitButton = document.getElementById("contact-form-button");
+            submitButton.disabled = true;
+            submitButton.innerText = "Sending...";
+            const form = this;
+            const formData = new FormData(form);
 
-            // Show loading state
-            button.innerHTML =
-              '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
-            button.disabled = true;
-
-            emailjs.sendForm("service_1wbq43b", "template_9429o5b", this).then(
-              () => {
-                document.getElementById("contact-form").reset();
-                button.innerHTML =
-                  '<i class="fas fa-check mr-2"></i>Message Sent!';
-                button.style.background =
-                  "linear-gradient(to right, #10b981, #059669)";
-
-                // Reset button after 2 seconds
-                setTimeout(() => {
-                  button.innerHTML = originalText;
-                  button.disabled = false;
-                  button.style.background = "";
-                  window.location.replace("/thank-you");
-                }, 2000);
+            fetch(
+              "https://script.google.com/macros/s/AKfycby-XVBEVJpUkDoQMp91Yr-q28tlLoNdpMJEweDwCFT1BIHzp9nc1wgLquDQ3jEaq7CYUg/exec",
+              {
+                method: "POST",
+                body: formData,
+                mode: "no-cors",
               },
-              (error) => {
-                document.getElementById("contact-form-status").textContent =
-                  "Failed to send message. Please try again.";
-                button.innerHTML = originalText;
-                button.disabled = false;
-                console.error("EmailJS error:", error);
-              },
-            );
+            )
+              .then((response) => response.text())
+              .then((result) => {
+                window.alert("Form Submitted Successfully");
+                form.reset();
+                submitButton.disabled = false;
+                submitButton.innerText = "Send Message";
+              })
+              .catch((error) => {
+                console.error("Error submitting form:", error);
+              });
           });
       };
     </script>
@@ -839,6 +836,5 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
   </body>
 </html>

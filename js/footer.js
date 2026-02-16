@@ -10,7 +10,7 @@ const footerHTML = `<div class="max-w-7xl mx-auto text-white">
             <i class="fas fa-arrow-up text-xl"></i>
         </button>
       <a
-        href="https://wa.me/9550191219"
+        href="https://wa.me/9581336333"
         class="rounded-full size-14 flex justify-center items-center p-2 bg-[#25D366] shadow-lg"
       >
         <i class="fa-brands fa-whatsapp text-white fa-2x fa-fade"></i>

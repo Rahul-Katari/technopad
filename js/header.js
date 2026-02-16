@@ -13,7 +13,7 @@ const headerHTML = `
             </div>
         </div>
         <div class="space-x-6">
-            <a href="./about.html" class="text-black hover:underline font-semibold">About Us</a>
+            <a href="/about.html" class="text-black hover:underline font-semibold">About Us</a>
             <a href="tel:9581336333" class="text-black hover:underline font-semibold">Support</a>
         </div>
     </div>
@@ -28,11 +28,11 @@ const headerHTML = `
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-8 text-lg flex-wrap justify-center md:justify-start">
             <a href="/" class="hover:text-blue-600 font-semibold">Home</a>
-            <a href="./course.html" class="hover:text-blue-600 font-semibold">Courses</a>
+            <a href="/course.html" class="hover:text-blue-600 font-semibold">Courses</a>
             <a href="https://www.google.com/maps/place/TechnoPad/@17.4369628,78.4446304,17z/data=!3m1!5s0x3bcb90c8ab9120c3:0x1c74b134c64e6e30!4m8!3m7!1s0x3bcb90c8ae94332d:0x77b45594a5a1ca3d!8m2!3d17.4369577!4d78.4472053!9m1!1b1!16s%2Fg%2F119wdkwfr?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
                 target="_blank" class="hover:text-blue-600 font-semibold">Our Reviews</a>
-            <a href="#" class="hover:text-blue-600 font-semibold">Blogs</a>
-            <a href="./contact.html" class="hover:text-blue-600 font-semibold">Contact Us</a>
+            <a href="https://blog.technopad.in/" class="hover:text-blue-600 font-semibold">Blogs</a>
+            <a href="/contact.html" class="hover:text-blue-600 font-semibold">Contact Us</a>
         </div>
 
         <!-- Hamburger Menu for Mobile -->
@@ -49,12 +49,12 @@ const headerHTML = `
             </button>
             <nav class="flex flex-col space-y-6 mt-16 px-6">
                 <a href="/" class="hover:text-blue-600 font-semibold">Home</a>
-                <a href="./course.html" class="hover:text-blue-600 font-semibold">Courses</a>
+                <a href="/course.html" class="hover:text-blue-600 font-semibold">Courses</a>
                 <a href="https://www.google.com/maps/place/TechnoPad/@17.4369628,78.4446304,17z/data=!3m1!5s0x3bcb90c8ab9120c3:0x1c74b134c64e6e30!4m8!3m7!1s0x3bcb90c8ae94332d:0x77b45594a5a1ca3d!8m2!3d17.4369577!4d78.4472053!9m1!1b1!16s%2Fg%2F119wdkwfr?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" class="hover:text-blue-600 font-semibold">Our Reviews</a>
-                <a href="#" class="hover:text-blue-600 font-semibold">Blogs</a>
-                <a href="./contact.html" class="hover:text-blue-600 font-semibold">Contact Us</a>
-                <a href="./about.html" class="hover:text-blue-600 font-semibold">About Us</a>
-                <a href="tel:9395191219" class="hover:text-blue-600 font-semibold">Support</a>
+                <a href="https://blog.technopad.in/" class="hover:text-blue-600 font-semibold">Blogs</a>
+                <a href="/contact.html" class="hover:text-blue-600 font-semibold">Contact Us</a>
+                <a href="/about.html" class="hover:text-blue-600 font-semibold">About Us</a>
+                <a href="tel:9581336333" class="hover:text-blue-600 font-semibold">Support</a>
             </nav>
         </div>
     </div>
