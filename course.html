@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-PRDQPLJ8");
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAP Training Institute - Master ERP Skills</title>
@@ -305,6 +319,16 @@
   </head>
 
   <body class="font-sans bg-gray-50">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-PRDQPLJ8"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="header"></div>
 
     <!-- Hero Section -->
@@ -2005,7 +2029,7 @@
             <div class="flex justify-end space-x-2">
               <button
                 type="button"
-                onclick="closeModal()"
+                onclick="closeBrochureModal()"
                 class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400 transition duration-300"
               >
                 Cancel
@@ -2264,5 +2288,6 @@
         }
       });
     </script>
+    <script src="js/demo-modal.js"></script>
   </body>
 </html>
